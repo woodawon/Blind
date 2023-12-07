@@ -1,0 +1,220 @@
+body, div, dl, dt, dd, ul, ol, li, h1, h2, h3, h4, h5, h6, p, table, th, td, form, fieldset, legend, textarea, input, select, textarea, button, img, pre {
+    margin: 0;
+    padding: 0;
+    color: #222;
+    font-family: 'Roboto','Noto Sans KR',AppleSDGothicNeo-Regular,'Malgun Gothic','맑은 고딕',dotum,'돋움',sans-serif;
+    line-height: 1.25em;
+    word-wrap: break-word;
+}
+
+.article_info .info a, .article-view-contents .article_info .info span {
+    position: relative;
+    margin-right: 17px;
+    padding-left: 24px;
+    font-size: 14px;
+    line-height: 20px;
+    vertical-align: top;
+}
+
+.article_info .info a:before, .article-view-contents .article_info .info span:before {
+    position: absolute;
+    top: 50%;
+    left: 0;
+    display: block;
+    width: 16px;
+    height: 16px;
+    margin-top: -9px;
+    content: '';
+}
+
+.wrap-comment{
+	width: 736px;
+	border-bottom: 1px solid #d4d4d4;
+}
+
+.article_info{
+	margin-top: 30px;
+}
+
+.article-comments{
+	margin-top: 30px;
+}
+
+.ViewTitle{
+	width: 100%;
+	border-bottom: 1px solid #d4d4d4;
+}
+
+.content{
+	padding-bottom: 30px;
+	border-bottom: 1px solid #d4d4d4;
+}
+
+.allin{
+	margin-top: 80px;
+	display: flex;
+	flex-direction: column;
+    align-items: center;
+}
+
+.contentall{
+	display: flex;
+    flex-direction: row;
+}
+
+.VIewContent{
+	display: flex;
+	flex-direction: column;
+    align-items: flex-start;
+    width: 736px;
+}
+
+.ilbe {
+	background: #f8f8f8;
+	height: 310px;
+	width: 280px;
+	border-radius: 5%;
+	margin-left: 64px;
+	display: flex;
+	    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.number{
+	margin-top: 5px;
+	}
+
+.numbers{
+	display: flex;
+	flex-direction: column;
+}
+
+.wrap-info{
+    position: relative;
+    margin-top: 8px;
+    font-size: 12px;
+    margin-top: 30px;
+    margin-bottom: 30px;
+}
+
+p{
+	margin-top: 30px;
+}
+
+.article-view-head .wrap-info .info_fnc {
+    top: -2px;
+}
+
+.wrap-info .info_fnc {
+    position: absolute;
+    top: 0;
+    right: 0;
+}
+
+.wrap-info span, .wrap-info a {
+    margin-right: 14px;
+    color: #94969b;
+    vertical-align: top;
+}
+
+.wrap-info .like:before {
+    background: url(https://static.teamblind.com/img/www_kr/sp-kr.png?time=sep2023) no-repeat;
+    background-size: 600px 900px;
+    background-position: -62px -600px;
+}
+
+.wrap-info .date:before {
+    background: url(https://static.teamblind.com/img/www_kr/sp-kr.png?time=sep2023) no-repeat;
+    background-size: 600px 900px;
+    background-position: -88px -600px;
+}
+
+.wrap-info .pv:before {
+    background: url(https://static.teamblind.com/img/www_kr/sp-kr.png?time=sep2023) no-repeat;
+    background-size: 600px 900px;
+    background-position: -10px -600px;
+}
+
+.wrap-info .cmt:before {
+    background: url(https://static.teamblind.com/img/www_kr/sp-kr.png?time=sep2023) no-repeat;
+    background-size: 600px 900px;
+    background-position: -36px -600px;
+}
+
+
+.wrap-info span:before, .wrap-info a:before {
+    display: inline-block;
+    width: 16px;
+    height: 16px;
+    margin: -1px 3px 1px 0;
+    vertical-align: middle;
+    content: '';
+}
+
+.like{
+	 display: inline-block
+}
+
+.cmt{
+	 display: inline-block
+}
+
+.article_info .info .like:before {
+	content:"";
+    background: url(https://static.teamblind.com/img/www_kr/sp-kr.png?time=sep2023) no-repeat;
+    background-size: 504px 756px;
+    background-position: -109.2px -406.56px;
+}
+
+.article_info .info .cmt:before {
+	content:"";
+    background: url(https://static.teamblind.com/img/www_kr/sp-kr.png?time=sep2023) no-repeat;
+    background-size: 504px 756px;
+    background-position: -58.8px -406.56px;
+}
+
+.article-comments .reply_area {
+    position: relative;
+    margin-top: 19px;
+}
+
+.article-comments .reply_area .btn_reply {
+    position: relative;
+    width: 736px;
+    height: 54px;
+    padding-left: 48px;
+    border: 1px solid #d4d4d4;
+    font-size: 14px;
+    text-align: left;
+    box-sizing: border-box;
+}
+
+button {
+    overflow: visible;
+    border: 0;
+    background-color: transparent;
+    cursor: pointer;
+}
+
+.article-comments .reply_area .btn_reply:before {
+    position: absolute;
+    top: 50%;
+    left: 17px;
+    transform: translateY(-50%);
+    display: block;
+    width: 20px;
+    height: 20px;
+    background: url(https://static.teamblind.com/img/www_kr/sp-kr.png?time=sep2023) no-repeat;
+    background-size: 504px 756px;
+    background-position: -8.4px -322.56px;
+    content: '';
+}
+
+ul {
+	list-style: none;
+}
+
+li {
+	margin-top: 30px;
+}

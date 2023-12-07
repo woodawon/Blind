@@ -1,0 +1,108 @@
+li{
+	font-size: 13px;
+	color: #94969b;
+	margin-left: 5px;
+}
+.title{
+	width: 80%;
+	height: 5%;
+	color: black;
+}
+
+li:hover{
+	color: gray;
+}
+
+h1{
+	text-align: center;
+	margin-top: 5px;
+	margin-bottom: 5px;
+}
+
+.main{
+	border-bottom: 2px solid black;
+	padding-bottom: 10px;
+	color: black;
+}
+
+.eyes{
+	width: 16px;
+	height: 16px;
+	margin-top: 30px;
+}
+
+.caeegory{
+	font-size: 6px;
+	margin-top: 10px;
+}
+
+.title{
+	margin-top: 10px;
+}
+
+.content{
+	font-size: 6px;
+	margin-top: 10px;
+}
+
+.name{
+	font-size: 6px;
+	margin-top: 10px;
+}
+
+.wrapInfo{
+	display: flex;
+	max-width: 50%;
+	align-items: flex-end;
+    justify-content: space-between;
+}
+
+.titleImg{
+	display: flex;
+	margin-top: 80px;
+	justify-content: center;
+}
+
+ul{
+	list-style: none;
+	padding: 0;
+}
+
+.interface{
+	max-width: 80%;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	margin-left: 10%;
+	margin-top: 20px;
+	border-bottom: 3px solid #d4d4d4;
+	
+}
+
+.interfaceall{
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	
+}
+
+.postall{
+	display: flex;
+	width: 80%;
+	height: auto;
+	margin-left: 10%;
+	flex-wrap: wrap;
+}
+
+.postLeft{
+	width: 50%;
+	height: 170px;
+	border-bottom: 1px solid #eee;
+	border-right: 1px solid #eee;
+}
+
+.postRight{
+	width: 50%;
+	height: 170px;
+	border-bottom: 1px solid #eee;
+}

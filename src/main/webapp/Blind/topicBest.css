@@ -1,0 +1,236 @@
+li{
+	font-size: 13px;
+	color: #94969b;
+	margin-left: 5px;
+}
+
+p {
+	padding-right: 10px;
+}
+
+
+#noPost {
+	text-align: center;
+	padding: 135px;
+	margin-inline: auto;
+}
+
+.title{
+	width: 80%;
+	height: 5%;
+	color: black;
+}
+
+li:hover{
+	color: gray;
+}
+
+.main{
+	border-bottom: 2px solid black;
+	padding-bottom: 10px;
+	color: black;
+}
+
+.eyes{
+	width: 16px;
+	height: 16px;
+	margin-top: 30px;
+}
+
+.caeegory{
+	font-size: 12px;
+	margin-top: 10px;
+}
+
+.title{
+	margin-top: 10px;
+	font-size: 17.5px;
+}
+
+.content{
+	font-size: 12px;
+	margin-top: 10px;
+}
+
+.name{
+	font-size: 12px;
+	margin-top: 10px;
+	display: flex;
+}
+
+.wrapInfo{
+	display: flex;
+	max-width: 50%;
+	align-items: flex-end;
+    justify-content: space-between;
+}
+
+.titleImg{
+	display: flex;
+	
+	justify-content: center;
+}
+
+ul{
+	list-style: none;
+	padding: 0;
+}
+
+.interface{
+	max-width: 80%;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	margin-left: 10%;
+	margin-top: 20px;
+	border-bottom: 3px solid #d4d4d4;
+	
+}
+
+.interfaceall{
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	
+}
+
+.postall{
+	display: flex;
+	width: 80%;
+	height: auto;
+	margin-left: 10%;
+	flex-wrap: wrap;
+}
+
+.postLeft{
+	width: 50%;
+	height: 170px;
+	border-bottom: 1px solid #eee;
+	border-right: 1px solid #eee;
+}
+
+.postRight{
+	width: 50%;
+	height: 170px;
+	border-bottom: 1px solid #eee;
+}
+.silsigan {
+	text-align: center;
+	margin: 10px 0;
+}
+* {
+    margin:0; 
+    box-sizing: border-box;
+}
+
+
+[name="slide"] { display: none; }
+.slidebox { 
+       padding: 0;
+   
+    max-width: 1000px; 
+    width: 100%;
+    margin: 0 auto;    
+    margin-top: 80px;
+}
+.slidebox img { 
+         max-width: 100%;
+        padding: 0;
+    
+}
+.slidebox .slidelist {
+       padding: 0;
+   
+    white-space: nowrap;
+    font-size:0; 
+    overflow: hidden; 
+}
+.slidebox .slideitem {
+       padding: 0;
+   
+    position: relative;
+    display: inline-block; 
+    vertical-align: middle;
+    width: 100%;
+    transition: all .35s; 
+}
+.slidebox .slideitem label {
+       padding: 0;
+   
+   list-style: none;
+    position: absolute;
+    z-index: 1; 
+    top: 50%;
+    transform: translateY(-50%);
+    padding: 20px;
+    border-radius: 50%;
+    cursor: pointer; 
+}
+label.left {
+   padding: 0;
+    left: 20px;
+    background-image:url('https://www.lottecinema.co.kr/NLCHS/Content/images/icon/arr_lf_31_wht.png');
+    background-position: center center;
+    background-size: 50%;
+    background-repeat: no-repeat;
+    
+}
+label.right {
+   padding: 0;
+    right: 20px;
+    background-image:url('https://www.lottecinema.co.kr/NLCHS/Content/images/icon/arr_rg_31_wht.png');
+    background-position: center center;
+    background-size: 50%;
+    background-repeat: no-repeat;
+}
+[id="slide01"]:checked ~ .slidelist .slideitem {transform:translateX(0); animation:slide01 10s infinite}
+[id="slide02"]:checked ~ .slidelist .slideitem {transform:translateX(-100%); animation:slide02 10s infinite}
+[id="slide03"]:checked ~ .slidelist .slideitem {transform:translateX(-200%); animation:slide03 10s infinite}
+[id="slide04"]:checked ~ .slidelist .slideitem {transform:translateX(-300%); animation:slide04 10s infinite}
+ 
+@keyframes slide01 {
+   
+    0% {left: 0%;} 
+    25% {left: 0%;} 
+    48% {left: -100%;}
+    50% {left: -100%;}
+    73%    {left: -200%;}
+    75% {left: -200%;}
+    98% {left: -300%;} 
+    100% {left:0%} 
+}
+@keyframes slide02 {
+   
+    0% {left: 0%;} 
+    23% {left: 0%;}
+    25% {left: -100%;} 
+    48% {left: -100%;} 
+    50% {left: -200%;}
+    73%    {left: -200%;}
+    75% {left: 100%;}
+    98% {left: 100%;} 
+    100% {left:0%}
+}
+@keyframes slide03 {
+   
+    0% {left: 0%;}
+    23% {left: 0%;}
+    25% {left: -100%;} 
+    48% {left: -100%;} 
+    50% {left: 200%;}
+    73%    {left: 200%;}
+    75% {left: 100%;}
+    98% {left: 100%;}
+    100% {left:0%}
+}
+@keyframes slide04 {
+    0% {left: 0%;}
+    23% {left: 0%;}
+    25% {left: 300%;} 
+    48% {left: 300%;} 
+    50% {left: 200%;}
+    73%    {left: 200%;}
+    75% {left: 100%;}
+    98% {left: 100%;}
+    100% {left:0%}
+}

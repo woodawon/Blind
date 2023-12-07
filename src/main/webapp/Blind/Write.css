@@ -1,0 +1,120 @@
+header {
+	border-bottom: 1px solid #d4d4d4;
+}
+
+#wrapper {
+	height: auto;
+	min-height: 100%;
+	padding-bottom: 47.28px;
+	margin-top: 80px;
+}
+
+footer {
+	position: relative;
+	transform: translateY(-100%);
+}
+
+.writingLogo {
+	width: 22px;
+	height: 22px
+}
+
+.writingH2 {
+	display: flex;
+	align-items: center;
+	margin-top: 8%;
+	justify-content: center;
+}
+
+.writingForm {
+	display: flex;
+	width: 80%;
+	height: 540px;
+	margin-left: 10%;
+	flex-direction: column;
+	align-items: center;
+	margin-top: 15px;
+}
+
+.content {
+	width: 80%;
+	height: 80%;
+	font-size: 18px;
+	border: 1px solid black;
+	border-top: none;
+}
+
+.writingTitle {
+	margin-top: 20px;
+	width: 80%;
+	height: 10%;
+	font-size: 18px;
+}
+
+.button {
+	display: flex;
+	margin-top: 15px;
+	margin-bottom: 15px;
+}
+
+.enroll {
+	margin-right: 20px;
+	background-color: red;
+	color: white;
+	border: none;
+	width: 85px;
+	height: 40px;
+	cursor: pointer;
+}
+
+.cancel {
+	width: 85px;
+	height: 40px;
+	background-color: white;
+	border: 1px solid black;
+	cursor: pointer;
+}
+
+.interface {
+	padding: 5px 0;
+	margin-top: 15px;
+	width: 80%;
+	background: lightgray;
+	border-top: 1px solid blue;
+	border-left: 1px solid black;
+	border-right: 1px solid black;
+}
+
+.file {
+	margin-left: 5px;
+}
+
+img {
+	width: 17px;
+	height: 17px;
+}
+
+ul {
+	display: flex;
+	flex-direction: row;
+	margin-bottom: 10px;
+}
+
+li {
+	border: 1px solid black;
+	padding: 7px;
+	margin: 10px;
+	border-radius: 15px;
+	cursor: pointer;
+	list-style: none;
+}
+
+li:hover {
+	background-color: #FF9494;
+	color: #FFF6F6;
+}
+
+.selected {
+	background-color: #FF9494;
+	color: #FFF6F6;
+}

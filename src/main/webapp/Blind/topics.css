@@ -1,0 +1,15 @@
+header {
+	border-bottom: 1px solid #d4d4d4;
+}
+
+#wrapper {
+	height: auto;
+	min-height: 100%;
+	padding-bottom: 47.28px;
+}
+
+footer {
+	position: relative;
+	transform: translateY(-100%);
+	margin-top: 10px
+}
