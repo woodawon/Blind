@@ -14,7 +14,9 @@
 		<div id="main_header">
 			<h2 id="main_comment">현재 학생들의 학교 리뷰</h2>
 			<p id="main_content">학생들이 직접 평가하는 학교는 어떤지 확인해보세요</p>
-			<input type="text" placeholder="학교 이름으로 검색하세요" class="inp">
+			<form action="SchoolReviewProcess.jsp">
+				<input type="text" placeholder="학교 검색" id="search" size="30" name="q">
+			</form>
 		</div>
 
 		<div id="section_all" class="div_all">

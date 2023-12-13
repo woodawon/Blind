@@ -1,65 +1,69 @@
-h2,p {
+h2,
+p {
 	margin: 0;
-    padding: 0;
-    color: #222;
-    font-family: 'Roboto','Noto Sans KR',AppleSDGothicNeo-Regular,'Malgun Gothic','���� ����',dotum,'����',sans-serif;
-    line-height: 1.25em;
-    word-wrap: break-word;
+	padding: 0;
+	color: #222;
+	font-family: 'Roboto', 'Noto Sans KR', AppleSDGothicNeo-Regular, 'Malgun Gothic', '���� ����', dotum, '����', sans-serif;
+	line-height: 1.25em;
+	word-wrap: break-word;
 }
 
-p{
+p {
 	display: flex;
 	text-align: center;
 	display: block;
-    margin-block-start: 1em;
-    margin-block-end: 1em;
-    margin-inline-start: 0px;
-    margin-inline-end: 0px;
-    margin-top: 9px;
-    font-size: 16px;
-    line-height: 1.33em;
+	margin-block-start: 1em;
+	margin-block-end: 1em;
+	margin-inline-start: 0px;
+	margin-inline-end: 0px;
+	margin-top: 9px;
+	font-size: 16px;
+	line-height: 1.33em;
 }
 
 
-h2{
+h2 {
 	display: flex;
 	font-size: 24px;
-    font-weight: 700;
-    text-align:center;
-    justify-content: center;
+	font-weight: 700;
+	text-align: center;
+	justify-content: center;
 }
 
 input {
-    border: 1px solid black;
-    border-radius: 22px;
-    padding: 12px 350px 12px 30px;
-    font-size: 16px;
-    color: #222;
+	border: 1px solid black;
+	border-radius: 22px;
+	padding: 12px 50px 12px 30px;
+	font-size: 16px;
+	color: #222;
 }
 
 input[type="text"] {
-    text-align: left;
-    width: 100%;
+	text-align: left;
+	width: 100%;
 }
+
 button {
 	width: 240px;
 	background-color: #37acc9;
-    border-radius: 4px;
-    border: none;
-    font-size: 14px;
-    font-weight: 700;
-    color: #fff;
-    text-align: center;
-    line-height: 48px;
+	border-radius: 4px;
+	border: none;
+	font-size: 14px;
+	font-weight: 700;
+	color: #fff;
+	text-align: center;
+	line-height: 48px;
 }
+
 ul {
 	list-style-type: none;
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    padding: 14px 30px 20px 30px;
+	display: flex;
+	flex-direction: row;
+	justify-content: center;
+	padding: 14px 30px 20px 30px;
 	font-size: 14px;
 }
+
 .review_ul {
 	color: #37acc9;
 	padding: 0px 10px;
@@ -70,44 +74,51 @@ ul {
 	margin-right: 20px;
 	vertical-align: middle;
 }
+
 .div_all {
-	display:flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
-    flex-wrap: wrap;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	flex-direction: column;
+	flex-wrap: wrap;
 }
+
 .name_ul {
 	display: flex;
 	flex-direction: column;
-    align-items: center;
+	align-items: center;
 }
+
 .review_preview {
 	display: flex;
-    flex-direction: row;
-    align-items: center;
-    border: 1px solid #dfe1e4;
-    border-radius: 15px;
-    margin-bottom: 30px;
+	flex-direction: row;
+	align-items: center;
+	border: 1px solid #dfe1e4;
+	border-radius: 15px;
+	margin-bottom: 30px;
 }
 
 .reviewIMG {
-	width : 40px;
+	width: 40px;
 	height: 40px;
 	margin: 10px;
 }
 
 .school_name {
-	padding-top : 10px;
+	padding-top: 10px;
 	font-size: 18px;
 }
 
+#search {
+	max-width: 500px;
+}
+
 #all {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100%vh;
-    flex-direction: column;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	height: 100%vh;
+	flex-direction: column;
 }
 
 #main_comment {
@@ -115,48 +126,52 @@ ul {
 }
 
 #main_header {
-    padding: 50px;
-    margin-top: 20px;
+	padding: 50px;
+	margin-top: 20px;
 }
 
 #main_content {
 	margin-top: 7px;
-    font-size: 20px;
+	font-size: 20px;
 }
+
 #exImg {
 	width: 618px;
-    height: 320px;
+	height: 320px;
 }
+
 #section_all {
 	display: flex;
-    flex-direction: row;
-    justify-content: center;
-    align-items: center;
-	width:100%;
+	flex-direction: row;
+	justify-content: center;
+	align-items: center;
+	width: 100%;
 	height: 400px;
-    background-color: #ebf7fa;
+	background-color: #ebf7fa;
 }
+
 #review {
 	padding: 50px;
 	display: flex;
 	flex-direction: column;
-    align-items: center;
+	align-items: center;
 }
+
 #review_write {
 	margin-top: 20px;
-	margin-bottom : 20px;
-    font-size: 16px;
-    color: #94969b;
+	margin-bottom: 20px;
+	font-size: 16px;
+	color: #94969b;
 }
 
 #populer {
 	padding-top: 45px;
 	padding-bottom: 45px;
-    font-size: 22px;
+	font-size: 22px;
 }
 
-#main{
-  height: auto;
-  min-height: 100%;
-  padding-bottom: 47.28px;
+#main {
+	height: auto;
+	min-height: 100%;
+	padding-bottom: 47.28px;
 }
