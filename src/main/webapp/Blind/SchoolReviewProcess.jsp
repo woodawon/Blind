@@ -46,7 +46,7 @@
 		Document document = builder.parse(new InputSource(new java.io.StringReader(responses)));
 
 		// 검색한 학교 이름
-		String targetSchoolName = "상일미디어고등학교";
+		String targetSchoolName = request.getParameter("q");
 
 		// 학교 정보 처리
 		org.w3c.dom.NodeList nodeList = document.getElementsByTagName("row");
@@ -57,7 +57,6 @@
 		String schoolName = element.getElementsByTagName("SCHUL_NM").item(0).getTextContent(); // 학교 이름
 
 		if (schoolName.equals(targetSchoolName)) {
-
 			// item(0).getTextContent()  :  nodelist의 여러 데이터값 중에서 0번째인 특정 elemet를 text형태로 갖는다는 의미. 
 			// 몇 번째 item인지를 형식상 정해줘야 하기 때문에 무조껀 0번째로 다 넣어줌
 			String schoolFond = element.getElementsByTagName("FOND_SC_NM").item(0).getTextContent(); // 공립 or 사립
@@ -68,22 +67,19 @@
 			String schoolHMPG = element.getElementsByTagName("HMPG_ADRES").item(0).getTextContent(); // 홈페이지 주소
 			String schoolCOEDU = element.getElementsByTagName("COEDU_SC_NM").item(0).getTextContent(); // 남녀공학 구분
 			String schoolHS = element.getElementsByTagName("HS_SC_NM").item(0).getTextContent(); // 고등학교 구분
-
-			if (element.getElementsByTagName("SPCLY_PURPS_HS_ORD_NM").item(0).getTextContent() != null) {
-				String schoolSPCLY = element.getElementsByTagName("SPCLY_PURPS_HS_ORD_NM").item(0).getTextContent(); // 특수목적 고등학교 구분	
-				session.setAttribute("scSPCLY", schoolSPCLY);
-			}
-
+			String schoolSPCLY = element.getElementsByTagName("SPCLY_PURPS_HS_ORD_NM").item(0).getTextContent(); // 특수목적 고등학교 구분	
+			
+			session.setAttribute("scSPCLY", schoolSPCLY);
 			session.setAttribute("scName", schoolName);
-			session.setAttribute("scFond", schoolName);
-			session.setAttribute("scATPT", schoolName);
-			session.setAttribute("scRDNMA", schoolName);
-			session.setAttribute("scRDNDA", schoolName);
-			session.setAttribute("scTELNO", schoolName);
-			session.setAttribute("scHMPG", schoolName);
-			session.setAttribute("scCOEDU", schoolName);
-			session.setAttribute("scHS", schoolName);
-			response.sendRedirect("home2.jsp");
+			session.setAttribute("scFond", schoolFond);
+			session.setAttribute("scATPT", schoolATPT);
+			session.setAttribute("scRDNMA", schoolRDNMA);
+			session.setAttribute("scRDNDA", schoolRDNDA);
+			session.setAttribute("scTELNO", schoolTELNO);
+			session.setAttribute("scHMPG", schoolHMPG);
+			session.setAttribute("scCOEDU", schoolCOEDU);
+			session.setAttribute("scHS", schoolHS);
+ 			response.sendRedirect("SchoolReviewTest.jsp"); 
 		}
 			}
 		}
