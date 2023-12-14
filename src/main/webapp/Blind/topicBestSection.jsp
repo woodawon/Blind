@@ -106,7 +106,7 @@ dao.close();
 	<div class="postLeft">
 		<ul>
 			<li class="caeegory"><%=dto.getTag()%></li>
-			<li class="title"><h3>
+			<li class="title" onclick="View.jsp"><h3>
 					<strong><%=dto.getTitle()%>
 				</h3> </strong></li>
 			<li class="content"><%=dto.getContent()%></li>
@@ -134,7 +134,7 @@ dao.close();
 	<div class="postRight">
 		<ul>
 			<li class="caeegory"><%=dto.getTag()%></li>
-			<li class="title"><h3>
+			<li class="title" onclick="View.jsp"><h3>
 					<strong><%=dto.getTitle()%>
 				</h3> </strong></li>
 			<li class="content"><%=dto.getContent()%></li>

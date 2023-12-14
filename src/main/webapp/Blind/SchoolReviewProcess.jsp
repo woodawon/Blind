@@ -69,17 +69,17 @@
 			String schoolHS = element.getElementsByTagName("HS_SC_NM").item(0).getTextContent(); // 고등학교 구분
 			String schoolSPCLY = element.getElementsByTagName("SPCLY_PURPS_HS_ORD_NM").item(0).getTextContent(); // 특수목적 고등학교 구분	
 			
-			session.setAttribute("scSPCLY", schoolSPCLY);
-			session.setAttribute("scName", schoolName);
-			session.setAttribute("scFond", schoolFond);
-			session.setAttribute("scATPT", schoolATPT);
-			session.setAttribute("scRDNMA", schoolRDNMA);
-			session.setAttribute("scRDNDA", schoolRDNDA);
-			session.setAttribute("scTELNO", schoolTELNO);
-			session.setAttribute("scHMPG", schoolHMPG);
-			session.setAttribute("scCOEDU", schoolCOEDU);
-			session.setAttribute("scHS", schoolHS);
- 			response.sendRedirect("SchoolReviewTest.jsp"); 
+			session.setAttribute("scSPCLY", schoolSPCLY);// 특수목적 고등학교 구분
+			session.setAttribute("scName", schoolName);// 학교 이름
+			session.setAttribute("scFond", schoolFond);// 공립 or 사립
+			session.setAttribute("scATPT", schoolATPT);// 교육청명
+			session.setAttribute("scRDNMA", schoolRDNMA);// 도로명주소
+			session.setAttribute("scRDNDA", schoolRDNDA);// 상세 도로명주소
+			session.setAttribute("scTELNO", schoolTELNO);// 전화번호
+			session.setAttribute("scHMPG", schoolHMPG);// 홈페이지 주소
+			session.setAttribute("scCOEDU", schoolCOEDU);// 남녀공학 구분
+			session.setAttribute("scHS", schoolHS);// 고등학교 구분
+ 			response.sendRedirect("SchoolView.jsp"); 
 		}
 			}
 		}

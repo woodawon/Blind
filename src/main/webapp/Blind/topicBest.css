@@ -1,122 +1,124 @@
 li{
-	font-size: 13px;
-	color: #94969b;
-	margin-left: 5px;
+   font-size: 13px;
+   color: #94969b;
+
 }
 
 p {
-	padding-right: 10px;
+   padding-right: 10px;
 }
 
 
 #noPost {
-	text-align: center;
-	padding: 135px;
-	margin-inline: auto;
+   text-align: center;
+   padding: 135px;
+   margin-inline: auto;
 }
 
 .title{
-	width: 80%;
-	height: 5%;
-	color: black;
+   width: 80%;
+   height: 5%;
+   color: black;
 }
 
 li:hover{
-	color: gray;
+   color: gray;
 }
 
 .main{
-	border-bottom: 2px solid black;
-	padding-bottom: 10px;
-	color: black;
+   border-bottom: 2px solid black;
+   padding-bottom: 10px;
+   color: black;
 }
 
 .eyes{
-	width: 16px;
-	height: 16px;
-	margin-top: 30px;
+   width: 16px;
+   height: 16px;
+   margin-top: 30px;
 }
 
 .caeegory{
-	font-size: 12px;
-	margin-top: 10px;
+   font-size: 12px;
+   margin-top: 10px;
 }
 
 .title{
-	margin-top: 10px;
-	font-size: 17.5px;
+   margin-top: 10px;
+   font-size: 17.5px;
 }
 
 .content{
-	font-size: 12px;
-	margin-top: 10px;
+   font-size: 12px;
+   margin-top: 10px;
 }
 
 .name{
-	font-size: 12px;
-	margin-top: 10px;
-	display: flex;
+   font-size: 12px;
+   margin-top: 10px;
+   display: flex;
 }
 
 .wrapInfo{
-	display: flex;
-	max-width: 50%;
-	align-items: flex-end;
+   display: flex;
+   max-width: 35%;
+   align-items: flex-end;
     justify-content: space-between;
 }
 
 .titleImg{
-	display: flex;
-	
-	justify-content: center;
+   display: flex;
+   
+   justify-content: center;
 }
 
 ul{
-	list-style: none;
-	padding: 0;
+   list-style: none;
+   padding: 0;
 }
 
 .interface{
-	max-width: 80%;
-	display: flex;
-	align-items: center;
-	justify-content: center;
-	margin-left: 10%;
-	margin-top: 20px;
-	border-bottom: 3px solid #d4d4d4;
-	
+   max-width: 80%;
+   display: flex;
+   align-items: center;
+   justify-content: center;
+   margin-left: 10%;
+   margin-top: 20px;
+   border-bottom: 3px solid #d4d4d4;
+   
 }
 
 .interfaceall{
-	display: flex;
-	align-items: center;
-	justify-content: center;
-	
+   display: flex;
+   align-items: center;
+   justify-content: center;
+   
 }
 
 .postall{
-	display: flex;
-	width: 80%;
-	height: auto;
-	margin-left: 10%;
-	flex-wrap: wrap;
+   display: flex;
+   width: 80%;
+   height: auto;
+   margin-left: 10%;
+   flex-wrap: wrap;
 }
 
 .postLeft{
-	width: 50%;
-	height: 170px;
-	border-bottom: 1px solid #eee;
-	border-right: 1px solid #eee;
+   width: 49%;
+   height: 170px;
+   border-bottom: 1px solid #eee;
+   border-right: 1px solid #eee;
+   margin-left: 1%;
 }
 
 .postRight{
-	width: 50%;
-	height: 170px;
-	border-bottom: 1px solid #eee;
+   width: 49%;
+   height: 170px;
+   border-bottom: 1px solid #eee;
+   margin-left: 1%;
 }
 .silsigan {
-	text-align: center;
-	margin: 10px 0;
+   text-align: center;
+   margin: 10px 0;
 }
 * {
     margin:0; 

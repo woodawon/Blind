@@ -9,23 +9,16 @@
 response.setContentType("text/html; charset=UTF-8");
 request.setCharacterEncoding("UTF-8");
 
-String num = request.getParameter("num");
-BoardDAO dao = new BoardDAO(application);
-
-dao.updateVisitCount(num); // 조회수 증가
-BoardDTO dto = dao.selectView(num); // 게시물 가져오기
-
-MemberDTO DTO = new MemberDTO();
-String mail = (String) session.getAttribute("UserMail");
-String school = (String) session.getAttribute("userCH");
-String id = (String) session.getAttribute("UserId");
-
-String PostId = (String) session.getAttribute("PostId");
-String Tag = (String) session.getAttribute("Tag");
-String Content = (String) session.getAttribute("Content");
-Date PostDate = (Date) session.getAttribute("PostDate");
-String Title = (String) session.getAttribute("Title");
-String ChName = (String) session.getAttribute("ChName");
+String scName = session.getAttribute("scName").toString(); //학교 이름
+String scFond = session.getAttribute("scFond").toString(); //공립 or 사립
+String scATPT = session.getAttribute("scATPT").toString(); //교육청명
+String scRDNMA = session.getAttribute("scRDNMA").toString(); //도로명주소
+String scRDNDA = session.getAttribute("scRDNDA").toString(); //상세 도로명주소
+String scTELNO = session.getAttribute("scTELNO").toString(); //전화번호
+String scHMPG = session.getAttribute("scHMPG").toString(); //홈페이지 주소
+String scCOEDU = session.getAttribute("scCOEDU").toString(); //남녀공학 구분
+String scHS = session.getAttribute("scHS").toString(); //고등학교 구분
+String scSPCLY = session.getAttribute("scSPCLY").toString(); //특수목적 고등학교 구분
 %>
 <!DOCTYPE html>
 <html>
@@ -36,12 +29,29 @@ String ChName = (String) session.getAttribute("ChName");
 <title>Insert title here</title>
 </head>
 <body>
-	<div class="allin">
+	<%
+	String[] arr = { scName, scFond, scATPT, scRDNDA, scRDNDA, scTELNO, scHMPG, scCOEDU, scHS };
+	%>
+	<ul>
+		<%
+		for (int i = 0; i < 8; i++) {
+		%>
+		<li><%=arr[i]%></li>
+		<%
+		}
+		%>
+		<%
+		if (scSPCLY != null) {
+		%>
+		<li><%=scSPCLY%></li>
+		<%
+		}
+		%>
+	</ul>
+
+	<%-- <div class="allin">
 
 		<div class="contentall">
-			<%
-			ArrayList<BoardDTO> list = dao.getComment(Title);
-			%>
 			<div class="VIewContent">
 				<div class="ViewTitle">
 					<ul>
@@ -112,25 +122,7 @@ String ChName = (String) session.getAttribute("ChName");
 				}
 				%>
 			</div>
-
-
-			<div class="ilbe">
-				<h3>추천글</h3>
-				<%
-				ArrayList<BoardDTO> lists = dao.randomPost(10);
-				for (int i = 0; i < lists.size(); i++) {
-				%>
-				<ul class="numbers">
-					<li class="number"><a
-						href="BoardProcess.jsp?title=<%=lists.get(i).getTitle()%>"><%=lists.get(i).getTitle()%></a></li>
-				</ul>
-				<%
-				}
-				%>
-			</div>
 		</div>
-
-	</div>
-
+	</div> --%>
 </body>
 </html>
