@@ -12,8 +12,8 @@ BoardDTO tagCheck = new BoardDTO();
 Map<String, Object> param = new HashMap<String, Object>();
 int totalCount = dao.selectCount(param);
 
-List<BoardDTO> boardLists = dao.selectList(param); 
-dao.close(); 
+List<BoardDTO> boardLists = dao.selectList(param);
+dao.close();
 %>
 <!DOCTYPE html>
 <html>
@@ -95,79 +95,79 @@ dao.close();
 	String right = "postRight";
 	%>
 	<div class="postall">
-	<% 
-	// 게시물이 있을 때 & 태그가 급식 자랑일 때
-	for (BoardDTO dto : boardLists) {
-		if (dto.getTag().equals("급식 자랑")) {
-			check++;
-			step++;
-			if (step % 2 != 0) {
-	%>
-	<div class="postLeft">
-		<ul>
-			<li class="caeegory"><%=dto.getTag()%></li>
-			<li class="title"><h3>
-					<strong><%=dto.getTitle()%>
-				</h3> </strong></li>
-			<li class="content"><%=dto.getContent()%></li>
-			<li class="name">
-				<p><%=dto.getChname()%></p>
-				<p><%=" | "%></p>
-				<p><%=dto.getId()%></p>
-			</li>
-			<div class="wrapInfo">
-				<img class="eyes" alt="fd"
-					src="https://cdn-icons-png.flaticon.com/512/1536/1536593.png">
-				<p><%=dto.getVisitcount()%></p>
-				<img class="eyes" alt="asdf"
-					src="https://cdn-icons-png.flaticon.com/512/6611/6611465.png">
-				<p><%=dto.getGood()%></p>
-				<img class="eyes" alt="asdf"
-					src="https://cdn-icons-png.flaticon.com/512/2598/2598880.png">
-				<p>123</p>
-			</div>
-		</ul>
-	</div>
-	<%
-	} else if (step % 2 == 0) {
-	%>
-	<div class="postRight">
-		<ul>
-			<li class="caeegory"><%=dto.getTag()%></li>
-			<li class="title"><h3>
-					<strong><%=dto.getTitle()%>
-				</h3> </strong></li>
-			<li class="content"><%=dto.getContent()%></li>
-			<li class="name">
-				<p><%=dto.getChname()%></p>
-				<p><%=" | "%></p>
-				<p><%=dto.getId()%></p>
-			</li>
-			<div class="wrapInfo">
-				<img class="eyes" alt="fd"
-					src="https://cdn-icons-png.flaticon.com/512/1536/1536593.png">
-				<p><%=dto.getVisitcount()%></p>
-				<img class="eyes" alt="asdf"
-					src="https://cdn-icons-png.flaticon.com/512/6611/6611465.png">
-				<p><%=dto.getGood()%></p>
-				<img class="eyes" alt="asdf"
-					src="https://cdn-icons-png.flaticon.com/512/2598/2598880.png">
-				<p>123</p>
-			</div>
-		</ul>
-	</div>
-	<%
-	}
-	}
-	}
-	%>
-	<%
-	if (check == 0) {
-	%>
-	<p id="noPost">등록된 게시물이 없습니다.</p>
-	<%
-	}
-	%>
+		<%
+		// 게시물이 있을 때 & 태그가 급식 자랑일 때
+		for (BoardDTO dto : boardLists) {
+			if (dto.getTag().equals("급식 자랑")) {
+				check++;
+				step++;
+				if (step % 2 != 0) {
+		%>
+		<div class="postLeft">
+			<ul>
+				<li class="caeegory"><%=dto.getTag()%></li>
+				<li class="title" onclick="View.jsp"><h3>
+						<a href="BoardProcess.jsp?title=<%=dto.getTitle()%>" id="title"><%=dto.getTitle()%></a>
+					</h3></li>
+				<li class="content"><%=dto.getContent()%></li>
+				<li class="name">
+					<p><%=dto.getChname()%></p>
+					<p><%=" | "%></p>
+					<p><%=dto.getId()%></p>
+				</li>
+				<div class="wrapInfo">
+					<img class="eyes" alt="fd"
+						src="https://cdn-icons-png.flaticon.com/512/1536/1536593.png">
+					<p><%=dto.getVisitcount()%></p>
+					<img class="eyes" alt="asdf"
+						src="https://cdn-icons-png.flaticon.com/512/6611/6611465.png">
+					<p><%=dto.getGood()%></p>
+					<img class="eyes" alt="asdf"
+						src="https://cdn-icons-png.flaticon.com/512/2598/2598880.png">
+					<p>123</p>
+				</div>
+			</ul>
+		</div>
+		<%
+		} else if (step % 2 == 0) {
+		%>
+		<div class="postRight">
+			<ul>
+				<li class="caeegory"><%=dto.getTag()%></li>
+				<li class="title" onclick="View.jsp"><h3>
+						<a href="BoardProcess.jsp?title=<%=dto.getTitle()%>" id="title"><%=dto.getTitle()%></a>
+					</h3></li>
+				<li class="content"><%=dto.getContent()%></li>
+				<li class="name">
+					<p><%=dto.getChname()%></p>
+					<p><%=" | "%></p>
+					<p><%=dto.getId()%></p>
+				</li>
+				<div class="wrapInfo">
+					<img class="eyes" alt="fd"
+						src="https://cdn-icons-png.flaticon.com/512/1536/1536593.png">
+					<p><%=dto.getVisitcount()%></p>
+					<img class="eyes" alt="asdf"
+						src="https://cdn-icons-png.flaticon.com/512/6611/6611465.png">
+					<p><%=dto.getGood()%></p>
+					<img class="eyes" alt="asdf"
+						src="https://cdn-icons-png.flaticon.com/512/2598/2598880.png">
+					<p>123</p>
+				</div>
+			</ul>
+		</div>
+		<%
+		}
+		}
+		}
+		%>
+		<%
+		if (check == 0) {
+		%>
+		<p id="noPost">등록된 게시물이 없습니다.</p>
+		<%
+		}
+		%>
 	</div>
 </body>
 </html>

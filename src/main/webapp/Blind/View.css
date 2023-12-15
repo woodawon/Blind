@@ -7,6 +7,25 @@ body, div, dl, dt, dd, ul, ol, li, h1, h2, h3, h4, h5, h6, p, table, th, td, for
     word-wrap: break-word;
 }
 
+.schoolInfo{
+	display: flex;
+	margin-left: 35%;
+	max-width: 30%;
+	flex-direction: column;	
+}
+
+.reviewlist{
+	margin-top: 15px;
+}
+
+.bigtitle{
+	text-align: center;
+}
+
+.schoolInfo{
+	margin-top: 80px;
+}
+
 .article_info .info a, .article-view-contents .article_info .info span {
     position: relative;
     margin-right: 17px;

@@ -30,4 +30,17 @@ public class MemberDAO extends JDBConnect {
 		}
 		return dto;
 	}
+	
+	public void resetMemberDTO() {
+		try {
+			MemberDTO dto = new MemberDTO();
+			dto.setId("");
+			dto.setPass("");
+			dto.setRegidate("");
+			dto.setChname("");
+			dto.setEmail("");
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+	}
 }

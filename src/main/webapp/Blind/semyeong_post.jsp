@@ -1,20 +1,30 @@
-<%@page import="membership.MemberDTO"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="UTF-8">
-<title>청소년 블라인드</title>
 <link rel="stylesheet" href="./global.css">
+<meta charset="UTF-8">
+<title>학교생활</title>
 </head>
 <body>
+	<%
+	if (session.getAttribute("logined") != null) {
+	%>
+	<header>
+		<%@include file="Header2.jsp"%>
+	</header>
+	<%
+	} else {
+	%>
 	<header>
 		<%@include file="Header.jsp"%>
 	</header>
-	
+	<%
+	}
+	%>
 	<section id="wrapper">
-		<%@include file="Section.jsp"%>
+		<%@include file="schoolLife_Samung.jsp"%>
 	</section>
 	<footer>
 		<%@include file="Footer.jsp"%>

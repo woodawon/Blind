@@ -11,7 +11,6 @@
 <body>
 	<%@ include file="Header.jsp"%>
 	<input type="text" placeholder="관심있는 내용을  검색해보세요!" class="inp">
-
 	<div class="Topic">
 		<div class="Tothe">
 			<h3 class="H3">
@@ -189,7 +188,8 @@
 
 
 	<div class="ilbe">
-		<h5>일간베스트</h5>
+		<h5>베스트</h5>
+		<!-- 게시물 별 조회수 DB 가져와서, 조회수 가장 높은 순으로 li 띄우면 됨 -->
 		<ol>
 			<li></li>
 			<li></li>

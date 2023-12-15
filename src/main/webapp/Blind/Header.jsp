@@ -24,12 +24,12 @@
 		</h3>
 		
 		<div class="inter">
-			<a href="home.jsp" class="writing" onclick="button1_click();" ><strong>글쓰기</strong></a> 
+			<a class="writing" onclick="button1_click();" ><strong>글쓰기</strong></a> 
 			<div class="lomem">
 			<a href="Login.jsp" class="login"><strong>로그인</strong></a> 
 			<a href="Register.jsp" class="member"><strong>회원가입</strong></a>
 			</div>
-			<a	href="User_Info.jsp">프로필</a>
+			<a onclick="button1_click();">프로필</a>
 		</div>
 
 	</div>

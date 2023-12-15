@@ -11,6 +11,24 @@ public class BoardDTO {
 	private String tag;
 	private String chname;
 	private String good;
+	private String grade;
+	private String school;
+	
+	public String getSchool() {
+		return school;
+	}
+
+	public void setSchool(String school) {
+		this.school = school;
+	}
+
+	public String getGrade() {
+		return grade;
+	}
+
+	public void setGrade(String grade) {
+		this.grade = grade;
+	}
 
 	public String getNum() {
 		return num;

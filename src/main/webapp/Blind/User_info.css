@@ -1,7 +1,8 @@
-	header{
+header {
 	border-bottom: 1px solid #d4d4d4;
-	}
-	section {
+}
+
+section {
 	position: fixed;
 	top: 21%;
 	left: 18%;
@@ -10,13 +11,15 @@
 	width: 60%;
 	border-top: 1px solid black;
 	/* border-left: 1px solid black; */
-	}
-	.Head {
+}
+
+.Head {
 	position: fixed;
 	top: 11%;
 	left: 18%
-	}
-	.tal {
+}
+
+.delete {
 	position: fixed;
 	top: 79%;
 	right: 23%;
@@ -25,8 +28,10 @@
 	border: none;
 	background: red;
 	color: white;
-	}
-	.su {
+	cursor: pointer;
+}
+
+.edit {
 	position: fixed;
 	top: 64%;
 	left: 19%;
@@ -35,22 +40,26 @@
 	border: none;
 	background: red;
 	color: white;
-	}
-	.secP {
+	cursor: pointer;
+}
+
+.secP {
 	position: fixed;
 	top: 53%;
 	left: 19%;
-	}
-	.Picture {
+}
+
+.Picture {
 	width: 150px;
 	height: 150px;
 	border-radius: 50%;
 	position: fixed;
-	top:30%;
+	top: 30%;
 	left: 25%;
-	}
-	.H3 {
+}
+
+.H3 {
 	position: fixed;
 	top: 23%;
 	left: 19%;
-	}
+}

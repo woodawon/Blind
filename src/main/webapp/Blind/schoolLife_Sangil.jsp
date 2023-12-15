@@ -1,7 +1,7 @@
+<%@page import="model1.board.BoardDTO"%>
 <%@page import="java.util.List"%>
 <%@page import="java.util.HashMap"%>
 <%@page import="java.util.Map"%>
-<%@page import="model1.board.BoardDTO"%>
 <%@page import="model1.board.BoardDAO"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
@@ -12,8 +12,8 @@ BoardDTO tagCheck = new BoardDTO();
 Map<String, Object> param = new HashMap<String, Object>();
 int totalCount = dao.selectCount(param);
 
-List<BoardDTO> boardLists = dao.selectList(param);
-dao.close();
+List<BoardDTO> boardLists = dao.selectSangil(param); 
+dao.close(); 
 %>
 <!DOCTYPE html>
 <html>
@@ -75,83 +75,99 @@ dao.close();
 				<a href="transfer.jsp"><li>전학&성적</li></a>
 				<a href="health.jsp"><li>헬스&다이어트</li></a>
 				<a href="travel.jsp"><li>여행&먹방</li></a>
-				<a href="schoolLife.jsp"><li>학교생활</li></a>
+				<a href="schoolLife.jsp"><li class="main">학교생활</li></a>
 				<a href="hobby.jsp"><li>취미생활</li></a>
 				<a href="flex.jsp"><li>지름&쇼핑</li></a>
 				<a href="animal.jsp"><li>반려 동물</li></a>
 				<a href="sports.jsp"><li>스포츠</li></a>
 				<a href="game.jsp"><li>게임</li></a>
 				<a href="fashion.jsp"><li>패션&뷰티</li></a>
-				<a href="joke.jsp"><li class="main">유우머</li></a>
+				<a href="promotion.jsp"><li>직접홍보</li></a>
 				<a href="worry.jsp"><li>고민 상담</li></a>
 			</ul>
 		</strong>
 	</div>
+
 	<%
-	// 게시물이 있을 때 & 태그가 유우머일 때
-	for (BoardDTO dto : boardLists) {
-		if (dto.getTag().equals("유우머")) {
+	int check = 0;
+	int step = 0;
+	String left = "postLeft";
+	String right = "postRight";
 	%>
 	<div class="postall">
-		<div class="postLeft">
-			<ul>
-				<li class="caeegory"><%=dto.getTag()%></li>
-				<li class="title" onclick="View.jsp"><h3>
-						<a href="BoardProcess.jsp?title=<%=dto.getTitle()%>" id="title"><%=dto.getTitle()%></a>
-					</h3></li>
-				<li class="content"><%=dto.getContent()%></li>
-				<li class="name">
-					<p><%=dto.getChname()%></p>
-					<p><%=" | "%></p>
-					<p><%=dto.getId()%></p>
-				</li>
-				<div class="wrapInfo">
-					<img class="eyes" alt="fd"
-						src="https://cdn-icons-png.flaticon.com/512/1536/1536593.png">
-					<p><%=dto.getVisitcount()%></p>
-					<img class="eyes" alt="asdf"
-						src="https://cdn-icons-png.flaticon.com/512/6611/6611465.png">
-					<p><%=dto.getGood()%></p>
-					<img class="eyes" alt="asdf"
-						src="https://cdn-icons-png.flaticon.com/512/2598/2598880.png">
-					<p>123</p>
-				</div>
-			</ul>
-		</div>
-		<div class="postRight">
-			<ul>
-				<li class="caeegory"><%=dto.getTag()%></li> <
-				<li class="title" onclick="View.jsp"><h3>
-						<a href="BoardProcess.jsp?title=<%=dto.getTitle()%>" id="title"><%=dto.getTitle()%></a>
-					</h3></li>
-				<li class="content"><%=dto.getContent()%></li>
-				<li class="name">
-					<p><%=dto.getChname()%></p>
-					<p><%=" | "%></p>
-					<p><%=dto.getId()%></p>
-				</li>
-				<div class="wrapInfo">
-					<img class="eyes" alt="fd"
-						src="https://cdn-icons-png.flaticon.com/512/1536/1536593.png">
-					<p><%=dto.getVisitcount()%></p>
-					<img class="eyes" alt="asdf"
-						src="https://cdn-icons-png.flaticon.com/512/6611/6611465.png">
-					<p><%=dto.getGood()%></p>
-					<img class="eyes" alt="asdf"
-						src="https://cdn-icons-png.flaticon.com/512/2598/2598880.png">
-					<p>123</p>
-				</div>
-			</ul>
-		</div>
+	<% 
+	// 게시물이 있을 때 & 태그가 학교생활일 때
+	for (BoardDTO dto : boardLists) {
+		if (dto.getTag().equals("학교생활")) {
+			check++;
+			step++;
+			if (step % 2 != 0) {
+	%>
+	<div class="postLeft">
+		<ul>
+			<li class="caeegory"><%=dto.getTag()%></li>
+			<li class="title"><h3>
+					<strong><%=dto.getTitle()%>
+				</h3> </strong></li>
+			<li class="content"><%=dto.getContent()%></li>
+			<li class="name">
+				<p><%=dto.getChname()%></p>
+				<p><%=" | "%></p>
+				<p><%=dto.getId()%></p>
+			</li>
+			<div class="wrapInfo">
+				<img class="eyes" alt="fd"
+					src="https://cdn-icons-png.flaticon.com/512/1536/1536593.png">
+				<p><%=dto.getVisitcount()%></p>
+				<img class="eyes" alt="asdf"
+					src="https://cdn-icons-png.flaticon.com/512/6611/6611465.png">
+				<p><%=dto.getGood()%></p>
+				<img class="eyes" alt="asdf"
+					src="https://cdn-icons-png.flaticon.com/512/2598/2598880.png">
+				<p>123</p>
+			</div>
+		</ul>
 	</div>
 	<%
-	} else {
+	} else if (step % 2 == 0) {
+	%>
+	<div class="postRight">
+		<ul>
+			<li class="caeegory"><%=dto.getTag()%></li>
+			<li class="title"><h3>
+					<strong><%=dto.getTitle()%>
+				</h3> </strong></li>
+			<li class="content"><%=dto.getContent()%></li>
+			<li class="name">
+				<p><%=dto.getChname()%></p>
+				<p><%=" | "%></p>
+				<p><%=dto.getId()%></p>
+			</li>
+			<div class="wrapInfo">
+				<img class="eyes" alt="fd"
+					src="https://cdn-icons-png.flaticon.com/512/1536/1536593.png">
+				<p><%=dto.getVisitcount()%></p>
+				<img class="eyes" alt="asdf"
+					src="https://cdn-icons-png.flaticon.com/512/6611/6611465.png">
+				<p><%=dto.getGood()%></p>
+				<img class="eyes" alt="asdf"
+					src="https://cdn-icons-png.flaticon.com/512/2598/2598880.png">
+				<p>123</p>
+			</div>
+		</ul>
+	</div>
+	<%
+	}
+	}
+	}
+	%>
+	<%
+	if (check == 0) {
 	%>
 	<p id="noPost">등록된 게시물이 없습니다.</p>
 	<%
-	break;
-	}
 	}
 	%>
+	</div>
 </body>
 </html>
