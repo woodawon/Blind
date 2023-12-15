@@ -1,5 +1,8 @@
+<%@page import="membership.MemberDTO"%>
+<%@page import="membership.MemberDAO"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+	
 <!DOCTYPE html>
 <html>
 <head>
@@ -26,9 +29,11 @@
 			<img class="Picture" alt="logo" src="./images/blind.png">
 
 			<div class="secP">
-				<p class="Email">이메일 :</p>
+				<p class="Email">이메일 :
+				</p>
 				<br>
-				<p class="School">학교명 :</p>
+				<p class="School">학교명 :
+				</p>
 			</div>
 		</div>
 
