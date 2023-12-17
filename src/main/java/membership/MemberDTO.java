@@ -1,5 +1,7 @@
 package membership;
 
+import java.sql.Blob;
+
 public class MemberDTO {
 
 	private String id;
@@ -7,6 +9,15 @@ public class MemberDTO {
 	private String regidate;
 	private String chname;
 	private String email;
+	private Blob img;
+
+	public Blob getImg() {
+		return img;
+	}
+
+	public void setImg(Blob img) {
+		this.img = img;
+	}
 
 	public String getChname() {
 		return chname;

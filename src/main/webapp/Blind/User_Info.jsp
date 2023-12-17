@@ -12,48 +12,46 @@
 <%@page import="membership.MemberDAO"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
-<%!
-	String getImagePathFromDatabase(HttpSession session) throws ClassNotFoundException  {
-    Class.forName("oracle.jdbc.OracleDriver");
-    String url = "jdbc:oracle:thin:@localhost:1521:xe";
-    String username = "blind";
-    String password = "1234";
+<%!String getImagePathFromDatabase(HttpSession session) throws ClassNotFoundException {
+		Class.forName("oracle.jdbc.OracleDriver");
+		String url = "jdbc:oracle:thin:@localhost:1521:xe";
+		String username = "blind";
+		String password = "1234";
 
-    String id = session.getAttribute("UserId").toString();
+		String id = session.getAttribute("UserId").toString();
 
-    try (Connection connection = DriverManager.getConnection(url, username, password)) {
-        String query = "select image from member where id=?";
-        try (PreparedStatement psmt = connection.prepareStatement(query)) {
-            psmt.setString(1, id);
+		try (Connection connection = DriverManager.getConnection(url, username, password)) {
+			String query = "select image from member where id=?";
+			try (PreparedStatement psmt = connection.prepareStatement(query)) {
+				psmt.setString(1, id);
 
-            try (ResultSet resultSet = psmt.executeQuery()) {
-                if (resultSet.next()) {
-                    Blob imageBlob = resultSet.getBlob("image");
-                    InputStream inputStream = imageBlob.getBinaryStream();
-                    
-                    // InputStream을 byte 배열로 변환
-                    byte[] buffer = new byte[4096];
-                    ByteArrayOutputStream outputStream = new ByteArrayOutputStream();
-                    int bytesRead = -1;
-                    while ((bytesRead = inputStream.read(buffer)) != -1) {
-                        outputStream.write(buffer, 0, bytesRead);
-                    }
+				try (ResultSet resultSet = psmt.executeQuery()) {
+					if (resultSet.next()) {
+						Blob imageBlob = resultSet.getBlob("image");
+						InputStream inputStream = imageBlob.getBinaryStream();
 
-                    byte[] imageBytes = outputStream.toByteArray();
-                    inputStream.close();
-                    outputStream.close();
+						// InputStream을 byte 배열로 변환
+						byte[] buffer = new byte[4096];
+						ByteArrayOutputStream outputStream = new ByteArrayOutputStream();
+						int bytesRead = -1;
+						while ((bytesRead = inputStream.read(buffer)) != -1) {
+							outputStream.write(buffer, 0, bytesRead);
+						}
 
-                    // Base64로 인코딩된 이미지 데이터를 반환
-                    return "data:image/png;base64," + Base64.getEncoder().encodeToString(imageBytes);
-                }
-            }
-        }
-    } catch (SQLException | IOException e) {
-        e.printStackTrace();
-    }
-    return null;
-}
-%>
+						byte[] imageBytes = outputStream.toByteArray();
+						inputStream.close();
+						outputStream.close();
+
+						// Base64로 인코딩된 이미지 데이터를 반환
+						return "data:image/png;base64," + Base64.getEncoder().encodeToString(imageBytes);
+					}
+				}
+			}
+		} catch (SQLException | IOException e) {
+			e.printStackTrace();
+		}
+		return null;
+	}%>
 
 <!DOCTYPE html>
 <html>
@@ -83,18 +81,20 @@
 		<h3 class="H3">프로필</h3>
 		<div class="allP">
 			<%
-			if (session.getAttribute("UserImg") == null) {
-			%>
-			<img class="Picture" alt="logo" src="./images/blind.png">
-			<%
-			} else {
+			String action = null;
+			if (session.getAttribute("UserImg") != null) {
+				action = "/Blind/FileUploadServlet";
 			%>
 			<img src="<%=getImagePathFromDatabase(session)%>"
 				alt="Uploaded Image">
 			<%
+			} else {
+			%>
+			<img class="Picture" alt="logo" src="./images/blind.png">
+			<%
 			}
 			%>
-			<form method="post" action="/Blind/FileUploadServlet"
+			<form method="post" action="<%=action %>"
 				enctype="multipart/form-data">
 				<input type="file" name="file" accept="image/*"> <input
 					type="text" name="id" value="<%=session.getAttribute("UserId")%>" />
@@ -120,9 +120,24 @@
 				<input type="submit" value="수정" class="edit">
 			</form>
 			<form action="User_Delete.jsp">
-				<input type="submit" value="탈퇴" class="delete">
+				<input type="submit" value="탈퇴" class="delete"
+					onclick="openModal();">
 			</form>
 		</div>
 	</section>
+
+	<div id="myModal">
+		<div class="modal-content">
+			<span class="close" onclick="closeModal()">&times;</span>
+			<p>정말 탈퇴하시겠습니까?</p>
+			<button onclick="confirmDelete()">네</button>
+			<button onclick="closeModal()">아니요</button>
+		</div>
+	</div>
+	<script>
+		function openModal() {
+			document.getElementById('myModal').style.display = 'block';
+		}
+	</script>
 </body>
 </html>

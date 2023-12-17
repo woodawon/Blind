@@ -68,3 +68,7 @@ section {
 	size: 10pt;
 	color: gray;
 }
+
+#myModal {
+	display: none;
+}

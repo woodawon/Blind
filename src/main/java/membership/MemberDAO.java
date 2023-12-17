@@ -24,6 +24,7 @@ public class MemberDAO extends JDBConnect {
 				dto.setRegidate(rs.getString("regidate"));
 				dto.setChname(rs.getString("chname"));
 				dto.setEmail(rs.getString("email"));
+				dto.setImg(rs.getBlob("image"));;
 			}
 		} catch (Exception e) {
 			e.printStackTrace();

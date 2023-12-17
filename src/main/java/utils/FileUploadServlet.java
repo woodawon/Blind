@@ -84,7 +84,6 @@ public class FileUploadServlet extends HttpServlet {
 
 				// 사용한 자원 정리
 				bis.close();
-				session.setAttribute("UserImg", "img");
 			}
 		} catch (SQLException | IOException e) {
 			e.printStackTrace();
