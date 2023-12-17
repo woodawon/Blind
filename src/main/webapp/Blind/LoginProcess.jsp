@@ -21,7 +21,9 @@
 	if(blindDTO.getId() != null){
 		
 		session.setAttribute("UserId", blindDTO.getId());
-		session.setAttribute("userCH", blindDTO.getChname());
+		session.setAttribute("UserPW", blindDTO.getPass());
+		session.setAttribute("UserEM", blindDTO.getEmail());
+		session.setAttribute("UserCH", blindDTO.getChname());
 		response.sendRedirect("home2.jsp");
 	}
 	

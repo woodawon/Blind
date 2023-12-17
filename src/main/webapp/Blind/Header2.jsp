@@ -12,7 +12,7 @@
 </head>
 <body>
 	<div class="tag">
-		<a href="./home.jsp" class="maintitle"> <img
+		<a href="./home2.jsp" class="maintitle"> <img
 			src="https://i.namu.wiki/i/YEmalxMrXbQcoqIWG5cyPYhEfYV_2LUOiBUTlnLQQqw2ixMJmiD63J_fGBkiHLMaKv_NRjOPk0k3Z6AckkyCdg.webp"
 			alt="img" class="mainlogo" />
 			<h1>

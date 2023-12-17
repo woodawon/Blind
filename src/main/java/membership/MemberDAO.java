@@ -31,16 +31,23 @@ public class MemberDAO extends JDBConnect {
 		return dto;
 	}
 	
-	public void resetMemberDTO() {
+	public int updateUserInfo(String email, String school, String id, String pw) {
+		String query = "update member set email=?, chname=? "
+				+ "where id=? and pwd=?";
 		try {
-			MemberDTO dto = new MemberDTO();
-			dto.setId("");
-			dto.setPass("");
-			dto.setRegidate("");
-			dto.setChname("");
-			dto.setEmail("");
+			psmt = con.prepareStatement(query);
+			psmt.setString(1, email);
+			psmt.setString(2, school);
+			psmt.setString(3, id);
+			psmt.setString(4, pw);
+			psmt.executeUpdate();
+			return 1;
 		} catch (Exception e) {
+			System.out.println("사용자 정보 수정 실패");
 			e.printStackTrace();
+			return 0;
 		}
 	}
+	
+	
 }

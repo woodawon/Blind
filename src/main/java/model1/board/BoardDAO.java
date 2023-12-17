@@ -22,55 +22,54 @@ public class BoardDAO extends JDBConnect {
 		super(application);
 	}
 
+	// 리뷰 등록
+	public int insertReview(BoardDTO dto) {
+		int result = 0;
 
-	    // 리뷰 등록
-	    public int insertReview(BoardDTO dto) {
-	    	int result = 0;
+		try {
+			String query = "insert into review (" + "id, chname, content, grade, SCHOOL)" + "values ("
+					+ "?, ?, ?, ?, ?)";
 
-			try {
-				String query = "insert into review (" + "id, chname, content, grade, SCHOOL)"
-						+ "values (" + "?, ?, ?, ?, ?)";
+			psmt = con.prepareStatement(query); // 동적 쿼리
+			psmt.setString(1, dto.getId());
+			psmt.setString(2, dto.getChname());
+			psmt.setString(3, dto.getContent());
+			psmt.setString(4, dto.getGrade());
+			psmt.setString(5, dto.getSchool());
 
-				psmt = con.prepareStatement(query); // 동적 쿼리
-				psmt.setString(1, dto.getId());
-				psmt.setString(2, dto.getChname());
-				psmt.setString(3, dto.getContent());
-				psmt.setString(4, dto.getGrade());
-				psmt.setString(5, dto.getSchool());
-
-				result = psmt.executeUpdate();
-			} catch (Exception e) {
-				System.out.println("게시물 입력 중 예외 발생");
-				e.printStackTrace();
-			}
-
-			return result;
+			result = psmt.executeUpdate();
+		} catch (Exception e) {
+			System.out.println("게시물 입력 중 예외 발생");
+			e.printStackTrace();
 		}
 
-	    // 학교별 리뷰 조회
-	    public ArrayList<BoardDTO> getReviewsBySchool(String school) {
-	        ArrayList<BoardDTO> list = new ArrayList<>();
-	        try {
-	            String query = "SELECT * FROM review WHERE school = ?";
-	            psmt = con.prepareStatement(query);
-	            psmt.setString(1, school);
-	            rs = psmt.executeQuery();
+		return result;
+	}
 
-	            while (rs.next()) {
-	                BoardDTO dto = new BoardDTO();
-	                dto.setId(rs.getString("id"));
-	                dto.setChname(rs.getString("chname"));
-	                dto.setContent(rs.getString("content"));
-	                dto.setGrade(rs.getString("grade"));
-	                dto.setSchool(rs.getString("school"));
-	                list.add(dto);
-	            }
-	        } catch (SQLException e) {
-	        	System.out.println("리뷰 구하는 중 오류 발생.");
-	        }
-	        return list;
-	    }
-	
+	// 학교별 리뷰 조회
+	public ArrayList<BoardDTO> getReviewsBySchool(String school) {
+		ArrayList<BoardDTO> list = new ArrayList<>();
+		try {
+			String query = "SELECT * FROM review WHERE school = ?";
+			psmt = con.prepareStatement(query);
+			psmt.setString(1, school);
+			rs = psmt.executeQuery();
+
+			while (rs.next()) {
+				BoardDTO dto = new BoardDTO();
+				dto.setId(rs.getString("id"));
+				dto.setChname(rs.getString("chname"));
+				dto.setContent(rs.getString("content"));
+				dto.setGrade(rs.getString("grade"));
+				dto.setSchool(rs.getString("school"));
+				list.add(dto);
+			}
+		} catch (SQLException e) {
+			System.out.println("리뷰 구하는 중 오류 발생.");
+		}
+		return list;
+	}
+
 	public int selectCount(Map<String, Object> map) { // 게시물 개수 알려주는 메소드
 
 		int totalCount = 0;
@@ -185,7 +184,6 @@ public class BoardDAO extends JDBConnect {
 		return bbs;
 	}
 
-	
 	public int insertWrite(BoardDTO dto) { // 게시물 데이터 받아서 DB에 추가(글쓰기)
 		int result = 0;
 
@@ -208,8 +206,6 @@ public class BoardDAO extends JDBConnect {
 
 		return result;
 	}
-
-
 
 	public BoardDTO selectView(String num) {
 		BoardDTO dto = new BoardDTO();
@@ -236,8 +232,6 @@ public class BoardDAO extends JDBConnect {
 		}
 		return dto;
 	}
-
-
 
 	public void updateVisitCount(String num) { // 조회수 ++시키는 메서드
 		// 쿼리문 준비
@@ -278,8 +272,6 @@ public class BoardDAO extends JDBConnect {
 		return Dto;
 	}
 
-	
-	
 	public ArrayList<BoardDTO> getComment(String title) { // Arraylist 타입으로 댓글 가져옴
 		ArrayList<BoardDTO> list = new ArrayList<>();
 		try {
@@ -300,7 +292,6 @@ public class BoardDAO extends JDBConnect {
 		}
 		return list;
 	}
-
 
 	public BoardDTO selecView(String title) { // View.jsp에서 보일 content 등등 가져옴(BoardProcess에서 씀)
 		BoardDTO dto = new BoardDTO();

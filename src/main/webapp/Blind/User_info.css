@@ -63,3 +63,8 @@ section {
 	top: 23%;
 	left: 19%;
 }
+
+#preview {
+	size: 10pt;
+	color: gray;
+}
