@@ -29,7 +29,7 @@
 					if (resultSet.next()) {
 						Blob imageBlob = resultSet.getBlob("image");
 						InputStream inputStream = imageBlob.getBinaryStream();
-
+						
 						// InputStream을 byte 배열로 변환
 						byte[] buffer = new byte[4096];
 						ByteArrayOutputStream outputStream = new ByteArrayOutputStream();
@@ -41,9 +41,10 @@
 						byte[] imageBytes = outputStream.toByteArray();
 						inputStream.close();
 						outputStream.close();
-
+						
 						// Base64로 인코딩된 이미지 데이터를 반환
 						return "data:image/png;base64," + Base64.getEncoder().encodeToString(imageBytes);
+					
 					}
 				}
 			}
@@ -62,6 +63,8 @@
 <%@include file="Footer.jsp"%>
 <link rel="stylesheet" href="./User_info.css">
 <link rel="stylesheet" href="./global.css">
+<link id="hidden" rel="stylesheet" type="text/css"
+	href="User_Info_Hidden.css" disabled>
 </head>
 <body>
 	<%
@@ -81,20 +84,11 @@
 		<h3 class="H3">프로필</h3>
 		<div class="allP">
 			<%
-			String action = null;
-			if (session.getAttribute("UserImg") != null) {
-				action = "/Blind/FileUploadServlet";
+			if (session.getAttribute("UserImg") != null) {	
 			%>
 			<img src="<%=getImagePathFromDatabase(session)%>"
 				alt="Uploaded Image">
-			<%
-			} else {
-			%>
-			<img class="Picture" alt="logo" src="./images/blind.png">
-			<%
-			}
-			%>
-			<form method="post" action="<%=action %>"
+			<form method="post" action="<%="/Blind/FileUploadServlet"%>"
 				enctype="multipart/form-data">
 				<input type="file" name="file" accept="image/*"> <input
 					type="text" name="id" value="<%=session.getAttribute("UserId")%>" />
@@ -102,6 +96,13 @@
 					value="<%=session.getAttribute("UserPW")%>" /> <input
 					type="submit" value="Upload">
 			</form>
+			<%
+			} else {
+			%>
+			<img class="Picture" alt="logo" src="./images/blind.png">
+			<%
+			}
+			%>
 			<div class="secP">
 				<p class="Email">
 					이메일 :
@@ -119,10 +120,7 @@
 			<form action="User_Info_Edit.jsp">
 				<input type="submit" value="수정" class="edit">
 			</form>
-			<form action="User_Delete.jsp">
-				<input type="submit" value="탈퇴" class="delete"
-					onclick="openModal();">
-			</form>
+			<input type="submit" value="탈퇴" class="delete" onclick="openModal();">
 		</div>
 	</section>
 
@@ -130,13 +128,22 @@
 		<div class="modal-content">
 			<span class="close" onclick="closeModal()">&times;</span>
 			<p>정말 탈퇴하시겠습니까?</p>
-			<button onclick="confirmDelete()">네</button>
+			<button onclick="movePage()">네</button>
 			<button onclick="closeModal()">아니요</button>
 		</div>
 	</div>
 	<script>
-		function openModal() {
+		function openModal() { // 활성화
 			document.getElementById('myModal').style.display = 'block';
+			document.getElementById('hidden').disabled = false;
+		}
+		function closeModal() { // 비활성화
+			document.getElementById('myModal').style.display = 'none';
+			document.getElementById('hidden').disabled = true;
+		}
+		function movePage() {
+			var url = 'User_Delete.jsp';
+			window.location.href = url;
 		}
 	</script>
 </body>

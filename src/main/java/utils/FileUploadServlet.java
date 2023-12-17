@@ -81,6 +81,7 @@ public class FileUploadServlet extends HttpServlet {
 				psmt.setString(3, pw);
 
 				psmt.executeUpdate();
+				session.setAttribute("UserImg", "img");
 
 				// 사용한 자원 정리
 				bis.close();

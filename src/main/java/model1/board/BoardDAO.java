@@ -351,5 +351,19 @@ public class BoardDAO extends JDBConnect {
 
 		return list;
 	}
+	
+	public int deletePostedBoard(String id) {
+		try {
+			String query = "delete from board where "
+					+ "id=?";
+			psmt = con.prepareStatement(query);
+			psmt.setString(1, id);
+			psmt.executeQuery();
+			return 1;
+		} catch (Exception e) {
+			e.printStackTrace();
+			return 0;
+		}
+	}
 
 }

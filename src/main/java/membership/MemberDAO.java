@@ -24,17 +24,17 @@ public class MemberDAO extends JDBConnect {
 				dto.setRegidate(rs.getString("regidate"));
 				dto.setChname(rs.getString("chname"));
 				dto.setEmail(rs.getString("email"));
-				dto.setImg(rs.getBlob("image"));;
+				dto.setImg(rs.getBlob("image"));
+				;
 			}
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
 		return dto;
 	}
-	
+
 	public int updateUserInfo(String email, String school, String id, String pw) {
-		String query = "update member set email=?, chname=? "
-				+ "where id=? and pwd=?";
+		String query = "update member set email=?, chname=? " + "where id=? and pwd=?";
 		try {
 			psmt = con.prepareStatement(query);
 			psmt.setString(1, email);
@@ -49,6 +49,18 @@ public class MemberDAO extends JDBConnect {
 			return 0;
 		}
 	}
-	
-	
+
+	public int deleteUserInfo(String id) {
+		try {
+			String query = "delete from member " + "where id=?";
+			psmt = con.prepareStatement(query);
+			psmt.setString(1, id);
+			psmt.executeQuery();
+			return 1;
+		} catch (Exception e) {
+			e.printStackTrace();
+			return 0;
+		}
+	}
+
 }
