@@ -20,6 +20,13 @@
 			</h3>
 			<a href="topicBest.jsp" class="A">더보기 &gt;</a>
 		</div>
+		<ul>
+			<li>a</li>
+			<li>a</li>
+			<li>a</li>
+			<li>a</li>
+			<li>a</li>
+		</ul>
 
 		<div class="Tothe">
 			<h3 class="H3">
@@ -29,6 +36,13 @@
 			</h3>
 			<a href="freePost.jsp" class="A">더보기 &gt;</a>
 		</div>
+		<ul>
+			<li>a</li>
+			<li>a</li>
+			<li>a</li>
+			<li>a</li>
+			<li>a</li>
+		</ul>
 	</div>
 
 	<div class="allone">

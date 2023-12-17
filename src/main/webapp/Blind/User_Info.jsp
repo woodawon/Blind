@@ -87,6 +87,13 @@
 			if (session.getAttribute("UserImg") != null) {	
 			%>
 			<img src="<%=getImagePathFromDatabase(session) + "?timestamp=" + System.currentTimeMillis()%>" alt="Uploaded Image">
+			<%
+			} else {
+			%>
+			<img class="Picture" alt="logo" src="./images/blind.png">
+			<%
+			}
+			%>
 			<form method="post" action="<%="/Blind/FileUploadServlet"%>"
 				enctype="multipart/form-data">
 				<input type="file" name="file" accept="image/*"> <input
@@ -95,13 +102,6 @@
 					value="<%=session.getAttribute("UserPW")%>" /> <input
 					type="submit" value="Upload">
 			</form>
-			<%
-			} else {
-			%>
-			<img class="Picture" alt="logo" src="./images/blind.png">
-			<%
-			}
-			%>
 			<div class="secP">
 				<p class="Email">
 					이메일 :
