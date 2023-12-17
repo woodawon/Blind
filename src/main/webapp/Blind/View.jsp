@@ -9,7 +9,7 @@
 </head>
 <body>
 	<header>
-	<%@include file = "Header.jsp" %>
+	<%@include file = "Header2.jsp" %>
 	</header>
 	<section id="wrapper">
 	<%@include file = "ViewSection.jsp" %>

@@ -6,7 +6,6 @@
 <%@ include file="./IsLoggedin.jsp"%>
 <%
 request.setCharacterEncoding("UTF-8");
-
 String title = request.getParameter("title");
 String content = request.getParameter("content");
 String tag = request.getParameter("tag");
@@ -14,16 +13,16 @@ String tag = request.getParameter("tag");
 BoardDTO dto = new BoardDTO();
 dto.setTitle(title);
 dto.setContent(content);
-dto.setId(session.getAttribute("UserId").toString());
+dto.setId((String)session.getAttribute("UserId"));
 dto.setTag(tag);
-dto.setChname(session.getAttribute("userCH").toString());
+dto.setChname((String)session.getAttribute("UserCH"));
 
 BoardDAO dao = new BoardDAO(application);
 int iResult = dao.insertWrite(dto);
 dao.close();
 
 if (iResult == 1) {
-	response.sendRedirect("home.jsp");
+	response.sendRedirect("home2.jsp");
 } else {
 	JSFunction.alertBack("글쓰기에 실패하였습니다.", out);
 }

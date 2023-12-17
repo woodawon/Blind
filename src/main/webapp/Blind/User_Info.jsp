@@ -86,8 +86,7 @@
 			<%
 			if (session.getAttribute("UserImg") != null) {	
 			%>
-			<img src="<%=getImagePathFromDatabase(session)%>"
-				alt="Uploaded Image">
+			<img src="<%=getImagePathFromDatabase(session) + "?timestamp=" + System.currentTimeMillis()%>" alt="Uploaded Image">
 			<form method="post" action="<%="/Blind/FileUploadServlet"%>"
 				enctype="multipart/form-data">
 				<input type="file" name="file" accept="image/*"> <input

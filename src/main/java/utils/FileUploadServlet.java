@@ -12,6 +12,7 @@ import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
 
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.MultipartConfig;
 import javax.servlet.annotation.WebServlet;
@@ -24,14 +25,24 @@ import javax.servlet.http.Part;
 @WebServlet("/FileUploadServlet")
 @MultipartConfig
 public class FileUploadServlet extends HttpServlet {
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 	public Connection con;
+
 	@Override
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+		HttpSession session = req.getSession();
+		session.setAttribute("UserId", session.getAttribute("UserId"));
+		session.setAttribute("UserPW", session.getAttribute("UserPW"));
+		session.setAttribute("UserEM", session.getAttribute("UserEM"));
+		session.setAttribute("UserCH", session.getAttribute("UserCH"));
+		session.setAttribute("UserImg", (Object) session.getAttribute("UserImg"));
 		Part filePart = req.getPart("file");
 		String fileName = Paths.get(filePart.getSubmittedFileName()).getFileName().toString(); // MSIE fix.
 
 		// 파일을 서버에 저장할 물리적인 경로
-		String uploadPath = getServletContext().getRealPath("/Blind/images");
 		Path filePath = Paths.get("C:\\Picture\\", fileName);
 
 		try (InputStream fileContent = filePart.getInputStream(); OutputStream os = Files.newOutputStream(filePath)) {
@@ -47,18 +58,18 @@ public class FileUploadServlet extends HttpServlet {
 		// 데이터베이스에 파일 경로 저장
 		String dbPath = "C:\\Picture\\" + fileName;
 
-		HttpSession session = req.getSession();
 		try {
 			saveFilePathToDatabase(dbPath, session);
 		} catch (ClassNotFoundException e) {
 			e.printStackTrace();
 		}
 
-		resp.sendRedirect("/Blind/Blind/User_Info.jsp");
+		RequestDispatcher dispatcher = req.getRequestDispatcher("/Blind/Blind/User_Info.jsp");
+		dispatcher.forward(req, resp);
 	}
 
 	private void saveFilePathToDatabase(String filePath, HttpSession session) throws ClassNotFoundException {
-		
+
 		Class.forName("oracle.jdbc.OracleDriver");
 		String url = "jdbc:oracle:thin:@localhost:1521:xe";
 		String username = "blind";
