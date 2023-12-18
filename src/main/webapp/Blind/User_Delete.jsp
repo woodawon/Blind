@@ -23,15 +23,7 @@
 	mdao.close();
 
 	if (check1 + check2 == 2) {
-	%>
-	<script>
-		$
-		{
-			alert("탈퇴 처리되었습니다.");
-		}
-	</script>
-	<%
-	response.sendRedirect("home.jsp");
+		response.sendRedirect("home.jsp");
 	}
 	%>
 </body>

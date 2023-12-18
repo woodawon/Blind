@@ -1,5 +1,3 @@
-
-
 .mainlogo {
 	width: 50px;
 	height: 50px;
@@ -18,12 +16,10 @@
 	border: none;
 }
 
-.maintitle{
+.maintitle {
 	display: flex;
 	align-items: center;
 }
-
-
 
 a {
 	margin-right: 10px;
@@ -38,19 +34,18 @@ a {
 }
 
 .lomem {
-	
 	display: flex;
 	flex-direction: column;
 	align-items: center;
 	border: none;
 }
 
-strong{
+strong {
 	margin: 0 auto;
 }
 
-.writing{
-	display:flex;
+.writing {
+	display: flex;
 	align-items: center;
 	width: 82px;
 	height: 40px;
@@ -60,8 +55,8 @@ strong{
 	cursor: pointer;
 }
 
-.login{
-display:flex;
+.login {
+	display: flex;
 	width: 66px;
 	height: 18px;
 	align-items: center;
@@ -70,8 +65,8 @@ display:flex;
 	font-size: 10px;
 }
 
-.member{
-display:flex;
+.member {
+	display: flex;
 	width: 66px;
 	height: 18px;
 	align-items: center;
@@ -81,3 +76,6 @@ display:flex;
 	font-size: 10px;
 }
 
+#myModal {
+	display: none;
+}

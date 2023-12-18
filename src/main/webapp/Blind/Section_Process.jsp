@@ -1,3 +1,4 @@
+<%@page import="model1.board.BoardDTO"%>
 <%@page import="model1.board.BoardDAO"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
@@ -10,8 +11,10 @@
 <body>
 	<%
 	String search = request.getParameter("search");
-	BoardDAO dao = new BoardDAO(application);
-	
+	%>
+	<input type="text" name="title" value="<%=search %>" />
+	<%
+	request.getRequestDispatcher("BoardProcess.jsp").forward(request, response);
 	%>
 </body>
 </html>

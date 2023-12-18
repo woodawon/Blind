@@ -389,8 +389,5 @@ public class BoardDAO extends JDBConnect {
 
 	    return list;
 	}
-	
-	/* public BoardDTO */
-
 
 }
