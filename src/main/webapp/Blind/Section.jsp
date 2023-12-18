@@ -3,6 +3,10 @@
 <%@page import="model1.board.BoardDAO"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+<%
+BoardDAO dao = new BoardDAO(application);
+ArrayList<BoardDTO> list;
+%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -23,20 +27,19 @@
 			</h3>
 			<a href="topicBest.jsp" class="A">더보기 &gt;</a>
 		</div>
-		<%
-		int count = 5;
-		String tag = "토픽 베스트";
-		BoardDAO dao = new BoardDAO(application);
-		ArrayList<BoardDTO> bestlist = dao.previewPost(count, tag); // 글 5개 뽑아옴
-		%>
 		<ul>
 			<%
-			for (int i = 0; i < bestlist.size(); i++) {
+			list = dao.previewPost("토픽 베스트");
+			for (int i = 0; i < list.size(); i++) {
 			%>
-			<li><p><%=bestlist.get(i).getTitle()%></p>
-				<p><%=bestlist.get(i).getGood()%></p></li>
+			<li>
+				<p><%=list.get(i).getTitle()%></p>
+				<p><%=list.get(i).getGood()%></p>
+			</li>
 			<%
 			}
+			dao.close();
+			list.clear();
 			%>
 		</ul>
 
@@ -49,11 +52,20 @@
 			<a href="freePost.jsp" class="A">더보기 &gt;</a>
 		</div>
 		<ul>
-			<li>a</li>
-			<li>a</li>
-			<li>a</li>
-			<li>a</li>
-			<li>a</li>
+			<%
+			dao = new BoardDAO(application);
+			list = dao.previewPost("자유 게시판");
+			for (int i = 0; i < list.size(); i++) {
+			%>
+			<li>
+				<p><%=list.get(i).getTitle()%></p>
+				<p><%=list.get(i).getGood()%></p>
+			</li>
+			<%
+			}
+			dao.close();
+			list.clear();
+			%>
 		</ul>
 	</div>
 
@@ -66,6 +78,21 @@
 				</h3>
 				<a href="love.jsp" class="A">더보기 &gt;</a>
 			</div>
+			<ul>
+				<%
+				dao = new BoardDAO(application);
+				list = dao.previewPost("썸&연애");
+				for (int i = 0; i < list.size(); i++) {
+				%>
+				<li>
+					<p><%=list.get(i).getTitle()%></p>
+					<p><%=list.get(i).getGood()%></p>
+				</li>
+				<%
+				}
+				dao.close();
+				%>
+			</ul>
 		</div>
 
 		<div class="onepic">
@@ -76,6 +103,21 @@
 				</h3>
 				<a href="cafeteria.jsp" class="A">더보기 &gt;</a>
 			</div>
+			<ul>
+				<%
+				dao = new BoardDAO(application);
+				list = dao.previewPost("급식자랑");
+				for (int i = 0; i < list.size(); i++) {
+				%>
+				<li>
+					<p><%=list.get(i).getTitle()%></p>
+					<p><%=list.get(i).getGood()%></p>
+				</li>
+				<%
+				}
+				dao.close();
+				%>
+			</ul>
 		</div>
 	</div>
 
@@ -88,6 +130,21 @@
 				</h3>
 				<a href="transfer.jsp" class="A">더보기 &gt;</a>
 			</div>
+			<ul>
+				<%
+				dao = new BoardDAO(application);
+				list = dao.previewPost("전학&성적");
+				for (int i = 0; i < list.size(); i++) {
+				%>
+				<li>
+					<p><%=list.get(i).getTitle()%></p>
+					<p><%=list.get(i).getGood()%></p>
+				</li>
+				<%
+				}
+				dao.close();
+				%>
+			</ul>
 		</div>
 
 		<div class="onepic">
@@ -98,6 +155,21 @@
 				</h3>
 				<a href="health.jsp" class="A">더보기 &gt;</a>
 			</div>
+			<ul>
+				<%
+				dao = new BoardDAO(application);
+				list = dao.previewPost("헬스&다이어트");
+				for (int i = 0; i < list.size(); i++) {
+				%>
+				<li>
+					<p><%=list.get(i).getTitle()%></p>
+					<p><%=list.get(i).getGood()%></p>
+				</li>
+				<%
+				}
+				dao.close();
+				%>
+			</ul>
 		</div>
 	</div>
 
@@ -110,6 +182,21 @@
 				</h3>
 				<a href="travel.jsp" class="A">더보기 &gt;</a>
 			</div>
+			<ul>
+				<%
+				dao = new BoardDAO(application);
+				list = dao.previewPost("여행&먹방");
+				for (int i = 0; i < list.size(); i++) {
+				%>
+				<li>
+					<p><%=list.get(i).getTitle()%></p>
+					<p><%=list.get(i).getGood()%></p>
+				</li>
+				<%
+				}
+				dao.close();
+				%>
+			</ul>
 		</div>
 
 		<div class="onepic">
@@ -120,6 +207,21 @@
 				</h3>
 				<a href="schoolLife.jsp" class="A">더보기 &gt;</a>
 			</div>
+			<ul>
+				<%
+				dao = new BoardDAO(application);
+				list = dao.previewPost("학교생활");
+				for (int i = 0; i < list.size(); i++) {
+				%>
+				<li>
+					<p><%=list.get(i).getTitle()%></p>
+					<p><%=list.get(i).getGood()%></p>
+				</li>
+				<%
+				}
+				dao.close();
+				%>
+			</ul>
 		</div>
 	</div>
 
@@ -132,6 +234,21 @@
 				</h3>
 				<a href="hobby.jsp" class="A">더보기 &gt;</a>
 			</div>
+			<ul>
+				<%
+				dao = new BoardDAO(application);
+				list = dao.previewPost("취미생활");
+				for (int i = 0; i < list.size(); i++) {
+				%>
+				<li>
+					<p><%=list.get(i).getTitle()%></p>
+					<p><%=list.get(i).getGood()%></p>
+				</li>
+				<%
+				}
+				dao.close();
+				%>
+			</ul>
 		</div>
 
 		<div class="onepic">
@@ -142,6 +259,21 @@
 				</h3>
 				<a href="flex.jsp" class="A">더보기 &gt;</a>
 			</div>
+			<ul>
+				<%
+				dao = new BoardDAO(application);
+				list = dao.previewPost("지름&쇼핑");
+				for (int i = 0; i < list.size(); i++) {
+				%>
+				<li>
+					<p><%=list.get(i).getTitle()%></p>
+					<p><%=list.get(i).getGood()%></p>
+				</li>
+				<%
+				}
+				dao.close();
+				%>
+			</ul>
 		</div>
 	</div>
 
@@ -154,6 +286,21 @@
 				</h3>
 				<a href="animal.jsp" class="A">더보기 &gt;</a>
 			</div>
+			<ul>
+				<%
+				dao = new BoardDAO(application);
+				list = dao.previewPost("반려동물");
+				for (int i = 0; i < list.size(); i++) {
+				%>
+				<li>
+					<p><%=list.get(i).getTitle()%></p>
+					<p><%=list.get(i).getGood()%></p>
+				</li>
+				<%
+				}
+				dao.close();
+				%>
+			</ul>
 		</div>
 
 		<div class="onepic">
@@ -164,6 +311,21 @@
 				</h3>
 				<a href="sports.jsp" class="A">더보기 &gt;</a>
 			</div>
+			<ul>
+				<%
+				dao = new BoardDAO(application);
+				list = dao.previewPost("스포츠");
+				for (int i = 0; i < list.size(); i++) {
+				%>
+				<li>
+					<p><%=list.get(i).getTitle()%></p>
+					<p><%=list.get(i).getGood()%></p>
+				</li>
+				<%
+				}
+				dao.close();
+				%>
+			</ul>
 		</div>
 	</div>
 
@@ -176,6 +338,21 @@
 				</h3>
 				<a href="game.jsp" class="A">더보기 &gt;</a>
 			</div>
+			<ul>
+				<%
+				dao = new BoardDAO(application);
+				list = dao.previewPost("게임");
+				for (int i = 0; i < list.size(); i++) {
+				%>
+				<li>
+					<p><%=list.get(i).getTitle()%></p>
+					<p><%=list.get(i).getGood()%></p>
+				</li>
+				<%
+				}
+				dao.close();
+				%>
+			</ul>
 		</div>
 
 		<div class="onepic">
@@ -186,6 +363,21 @@
 				</h3>
 				<a href="fashion.jsp" class="A">더보기 &gt;</a>
 			</div>
+			<ul>
+				<%
+				dao = new BoardDAO(application);
+				list = dao.previewPost("패션&뷰티");
+				for (int i = 0; i < list.size(); i++) {
+				%>
+				<li>
+					<p><%=list.get(i).getTitle()%></p>
+					<p><%=list.get(i).getGood()%></p>
+				</li>
+				<%
+				}
+				dao.close();
+				%>
+			</ul>
 		</div>
 	</div>
 
@@ -198,6 +390,7 @@
 				</h3>
 				<a href="joke.jsp" class="A">더보기 &gt;</a>
 			</div>
+			<p>안돼..!</p>
 		</div>
 		<div class="onepic">
 			<div class="Tothe">
@@ -207,6 +400,21 @@
 				</h3>
 				<a href="worry.jsp" class="A">더보기 &gt;</a>
 			</div>
+			<ul>
+				<%
+				dao = new BoardDAO(application);
+				list = dao.previewPost("패션&뷰티");
+				for (int i = 0; i < list.size(); i++) {
+				%>
+				<li>
+					<p><%=list.get(i).getTitle()%></p>
+					<p><%=list.get(i).getGood()%></p>
+				</li>
+				<%
+				}
+				dao.close();
+				%>
+			</ul>
 		</div>
 
 	</div>

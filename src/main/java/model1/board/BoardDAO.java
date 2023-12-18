@@ -351,11 +351,10 @@ public class BoardDAO extends JDBConnect {
 
 		return list;
 	}
-	
+
 	public int deletePostedBoard(String id) {
 		try {
-			String query = "delete from board where "
-					+ "id=?";
+			String query = "delete from board where " + "id=?";
 			psmt = con.prepareStatement(query);
 			psmt.setString(1, id);
 			psmt.executeQuery();
@@ -365,44 +364,31 @@ public class BoardDAO extends JDBConnect {
 			return 0;
 		}
 	}
-	
-	public ArrayList<BoardDTO> previewPost(int count, String tag) { // ArrayList 형식으로 반환(게시물 수가 적을때 css도 달라지도록) count는 최대 반환수
-		ArrayList<BoardDTO> list = new ArrayList<>();
 
-		try {
-			String countQuery = "SELECT COUNT(*) FROM board where tag=?"; // 현재 board 테이블의 전체필드 수(게시물수)반환(아마 where tag= 추가하면 됨)
-			psmt = con.prepareStatement(countQuery);
-			psmt.setString(1, tag);
-			rs = psmt.executeQuery();
+	public ArrayList<BoardDTO> previewPost(String tag) {
+	    ArrayList<BoardDTO> list = new ArrayList<>();
+	    
+	    try {
+	        String query = "select title, good from board where tag=?";
+	        psmt = con.prepareStatement(query);
+	        psmt.setString(1, tag);
+	        rs = psmt.executeQuery();
+	        
+	        int count = 0;
+	        while (rs.next() && count < 5) {
+	            BoardDTO dto = new BoardDTO();
+	            dto.setTitle(rs.getString("title"));
+	            dto.setGood(rs.getString("good"));
+	            list.add(dto);
+	            count++;
+	        }
 
-			if (rs.next()) {
-				int totalCount = rs.getInt(1); // rs 첫번째꺼 가져옴
-				Set<Integer> selectedNums = new HashSet<>(); // 중복되는 결과 제외
-
-				while (list.size() < count && selectedNums.size() < totalCount) {
-					int num = (int) (Math.random() * totalCount) + 14; // 우리 board 테이블 num 값이 8부터 시작함
-
-					if (selectedNums.add(num)) {
-						String query = "SELECT title, good FROM board WHERE num = ? and tag=?";
-						psmt = con.prepareStatement(query); // 동적 쿼리
-						psmt.setInt(1, num);
-						psmt.setString(2, tag);
-						rs = psmt.executeQuery();
-
-						if (rs.next()) {
-							BoardDTO dto = new BoardDTO(); // if문 안에 넣어야 새로운 dto 계속 생성함
-							dto.setTitle(rs.getString("title")); // dto title에 값 넣음
-							dto.setGood(rs.getString("good"));
-							list.add(dto); // arrayList에 추가
-						}
-					}
-				}
-			}
 		} catch (SQLException e) {
-			e.printStackTrace();
-		}
+	        e.printStackTrace();
+	    }
 
-		return list;
+	    return list;
 	}
+
 
 }
