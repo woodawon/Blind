@@ -365,7 +365,7 @@ public class BoardDAO extends JDBConnect {
 		}
 	}
 
-	public ArrayList<BoardDTO> previewPost(String tag) {
+	public ArrayList<BoardDTO> previewPost(String tag) { // 게시물 미리보기
 	    ArrayList<BoardDTO> list = new ArrayList<>();
 	    
 	    try {
@@ -389,6 +389,8 @@ public class BoardDAO extends JDBConnect {
 
 	    return list;
 	}
+	
+	/* public BoardDTO */
 
 
 }

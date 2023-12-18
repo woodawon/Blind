@@ -17,7 +17,10 @@ ArrayList<BoardDTO> list;
 </head>
 <body>
 	<%@ include file="Header.jsp"%>
-	<input type="text" placeholder="관심있는 내용을  검색해보세요!" class="inp">
+	
+	<form action="Section_Process.jsp">
+		<input type="text" placeholder="관심있는 내용을  검색해보세요!" class="inp" name="search">
+	</form>
 	<div class="Topic">
 		<div class="Tothe">
 			<h3 class="H3">
