@@ -1,3 +1,6 @@
+<%@page import="model1.board.BoardDTO"%>
+<%@page import="java.util.ArrayList"%>
+<%@page import="model1.board.BoardDAO"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <!DOCTYPE html>
@@ -20,12 +23,21 @@
 			</h3>
 			<a href="topicBest.jsp" class="A">더보기 &gt;</a>
 		</div>
+		<%
+		int count = 5;
+		String tag = "토픽 베스트";
+		BoardDAO dao = new BoardDAO(application);
+		ArrayList<BoardDTO> bestlist = dao.previewPost(count, tag); // 글 5개 뽑아옴
+		%>
 		<ul>
-			<li>a</li>
-			<li>a</li>
-			<li>a</li>
-			<li>a</li>
-			<li>a</li>
+			<%
+			for (int i = 0; i < bestlist.size(); i++) {
+			%>
+			<li><p><%=bestlist.get(i).getTitle()%></p>
+				<p><%=bestlist.get(i).getGood()%></p></li>
+			<%
+			}
+			%>
 		</ul>
 
 		<div class="Tothe">
