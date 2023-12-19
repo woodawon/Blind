@@ -30,16 +30,19 @@ String scHS = session.getAttribute("scHS").toString(); //고등학교 구분
 String scSPCLY = session.getAttribute("scSPCLY").toString(); //특수목적 고등학교 구분
 request.setAttribute("scName", scName);
 
+String userId = session.getAttribute("UserId").toString();
+String userCH = session.getAttribute("UserCH").toString();
+
 if ("insert".equals(action)) {
 
 	String grade = request.getParameter("rating");
 	String content = request.getParameter("comin");
 
 	dto.setContent(content);
-	dto.setId(session.getAttribute("UserId").toString());
+	dto.setId(userId);
 	dto.setGrade(grade);
 	dto.setSchool(scName);
-	dto.setChname(session.getAttribute("userCH").toString());
+	dto.setChname(userCH);
 
 	// 리뷰 등록
 	dao.insertReview(dto);
@@ -57,19 +60,30 @@ ArrayList<BoardDTO> reviewList = dao.getReviewsBySchool(scName);
 </head>
 <body>
 	<%
-	String[] arr = { "1. 학교 이름: " + scName, "2. 분류: " + scFond, "3. 교육청명: " + scATPT, "4. 도로명주소: " + scRDNDA,
-			"5. 상세 도로명주소: " + scRDNDA, "6. 전화번호: " + scTELNO, "7. 홈페이지 주소: " + scHMPG, "8. 남녀공학 구분: " + scCOEDU,
-			"고등학교 구분: " + scHS };
+	String[] arr = { scName, scFond, scATPT, scRDNDA, scRDNDA, scTELNO, scHMPG, scCOEDU, scHS };
 	%>
-	<ul class="schoolInfo">
+	<%-- <ul class="schoolInfo">
 		<h3 class="bigtitle">학교 정보</h3>
-		<%
-		for (int i = 0; i < 8; i++) {
-		%>
-		<li><%=arr[i]%></li>
-		<%
-		}
-		%>
+		<h1><%=arr[0] %></h1>
+		<div id="schoolIntroduce">
+			<h1><%=arr[0] %> 학교 소개</h1>
+			<div id="left">
+				<p>홈페이지</p>
+				<a href="<%=arr[6]%>" />
+				<p>위치</p>
+				<p><%=arr[3] %></p>
+				<p>남녀공학 여부</p>
+				<p><%=arr[7] %></p>
+			</div>
+			<div id="right">
+				<p>공립 or 사립</p>
+				<p><%=arr[1] %></p>
+				<p>고등학교 구분</p>
+				<p><%=arr[8] %></p>
+				<p>전화번호</p>
+				<p><%=arr[5] %></p>
+			</div>
+		</div>
 		<%
 		if (scSPCLY != null) {
 		%>
@@ -77,14 +91,10 @@ ArrayList<BoardDTO> reviewList = dao.getReviewsBySchool(scName);
 		<%
 		}
 		%>
-	</ul>
+	</ul> --%>
 
 	<div class="allin">
 		<div class="article-comments">
-			<h2>
-				리뷰 페이지 -
-				<%=scName%></h2>
-
 			<!-- 리뷰 등록 폼 -->
 			<div class="write_area">
 				<div id="btn_add_comment">
@@ -105,12 +115,15 @@ ArrayList<BoardDTO> reviewList = dao.getReviewsBySchool(scName);
 		for (BoardDTO review : reviewList) {
 		%>
 		<div class="wrap-comment comment_area">
-			<p class="name"><%=review.getId()%> ▲
-				<%= review.getChname() %></p>
-			<p class="name"> <%= review.getSchool() %>	- 평점:
-			<%=review.getGrade()%></p>
+			<p class="name"><%=review.getChname()%></p>
+			<p>·</p>
+			<p><%=review.getId()%></p>
+			<p class="name">
+				<%=review.getSchool()%>
+				- 평점:
+				<%=review.getGrade()%></p>
 			<p class="cmt-txt"><%=review.getContent()%></p>
-			
+
 			<div class="wrap-info">
 				<div class="info_fnc">
 					<div class="more_wp">
@@ -126,6 +139,7 @@ ArrayList<BoardDTO> reviewList = dao.getReviewsBySchool(scName);
 		<%
 		}
 		%>
+	</div>
 	
 </body>
 </html>

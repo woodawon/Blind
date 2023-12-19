@@ -25,7 +25,7 @@
 		session.setAttribute("UserEM", blindDTO.getEmail());
 		session.setAttribute("UserCH", blindDTO.getChname());
 		session.setAttribute("UserImg", (Object)blindDTO.getImg());
-		response.sendRedirect("home2.jsp");
+		request.getRequestDispatcher("home2.jsp").forward(request, response);
 	}
 	
 	else{
