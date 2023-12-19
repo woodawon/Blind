@@ -85,5 +85,15 @@ public class MemberDAO extends JDBConnect {
 		}
 		return 1;
 	}
+	
+	public String passwordCheck(String email) {
+		String query ="select pwd from member where email=?";
+		psmt = con.prepareStatement(query);
+		psmt.setString(1, email);
+		rs = psmt.executeQuery();
+		while(rs.next()) {
+			
+		}
+	}
 
 }

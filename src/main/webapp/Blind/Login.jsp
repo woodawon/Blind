@@ -23,7 +23,7 @@
 					type="password" id="pw" name="Blind_pass"> <input
 					type="submit" id="Login" value="로그인" class="log">
 			</div>
-			<a href="Passward_Find.jsp" class="aTag">비밀번호 찾기 &gt;</a> <a
+			<a href="Password_Find.jsp" class="aTag">비밀번호 찾기 &gt;</a> <a
 				href="Register.jsp" class="Regi">회원가입 &gt;</a>
 		</form>
 	</section>
