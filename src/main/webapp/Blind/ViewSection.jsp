@@ -15,11 +15,9 @@ BoardDAO dao = new BoardDAO(application);
 dao.updateVisitCount(num); // 조회수 증가
 BoardDTO dto = dao.selectView(num); // 게시물 가져오기
 
-MemberDTO DTO = new MemberDTO();
 String mail = (String) session.getAttribute("UserMail");
 String school = (String) session.getAttribute("userCH");
 String id = (String) session.getAttribute("UserId");
-
 String PostId = (String) session.getAttribute("PostId");
 String Tag = (String) session.getAttribute("Tag");
 String Content = (String) session.getAttribute("Content");
@@ -45,12 +43,15 @@ String ChName = (String) session.getAttribute("ChName");
 			<div class="VIewContent">
 				<div class="ViewTitle">
 					<ul>
-
 						<li><%=Tag%></li>
-						<li><strong><h2><%=Title%></strong>
+						<li id="userViewTitle"><strong><h2><%=Title%></strong>
 							</h2></li>
-						<li><a href=""><%=ChName%></a></li>
 					</ul>
+					<div data-v-5d915d2e="" class="wrap-info">
+						<span data-v-5d915d2e="" class="date"><%=PostDate%></span> <span
+							data-v-5d915d2e="" class="pv"><%=dto.getVisitcount()%></span> <a
+							data-v-5d915d2e="" class="cmt"><%=list.size()%></a>
+					</div>
 				</div>
 
 
@@ -62,10 +63,6 @@ String ChName = (String) session.getAttribute("ChName");
 						<%=dto.getContent()%>
 					</p>
 					<div data-v-5d915d2e="" class="article_info">
-						<div data-v-5d915d2e="" class="wrap-info">
-							<span data-v-5d915d2e="" class="date"><%=PostDate%></span> <span
-								data-v-5d915d2e="" class="pv"><%=dto.getVisitcount()%></span>
-						</div>
 						<div data-v-5d915d2e="" class="info">
 							<a data-v-5d915d2e="" class="like"><%=dto.getGood()%></a> <a
 								data-v-5d915d2e="" class="cmt"><%=list.size()%></a>
@@ -92,9 +89,22 @@ String ChName = (String) session.getAttribute("ChName");
 				for (int j = 0; j < list.size(); j++) {
 				%>
 				<div class="wrap-comment comment_area">
-					<p class="name"><%=list.get(j).getId()%>
-						<%=list.get(j).getChname()%></p>
-					<p class="cmt-txt"><%=list.get(j).getContent()%></p>
+					<div id="userInfo">
+						<p class="name"><%=list.get(j).getChname()%>
+						<p id="dat">·</p>
+						<p class="uId" id="uId">
+							<%
+							String[] getId = list.get(j).getId().split("");
+							String star = "";
+							for (int i = 0; i < getId.length - 1; i++) {
+								star += "*";
+							}
+							String setId = getId[0] + star;
+							%>
+							<%=setId%>
+						</p>
+					</div>
+					<p class="cmt_txt"><%=list.get(j).getContent()%></p>
 					<div class="wrap-info">
 						<div class="info_fnc">
 							<div class="more_wp">
@@ -130,6 +140,19 @@ String ChName = (String) session.getAttribute("ChName");
 		</div>
 
 	</div>
+	<!-- <script>
+		// 문자열을 받아와 각 문자를 가리고 새로운 문자열을 반환하는 함수
+		function hideCharacters(text) {
+			return text[0] + '*'.repeat(text.length - 1);
+		}
+
+		// id가 uId인 요소의 내용을 가져와 가려진 문자열로 교체
+		var originalElement = document.getElementById('uId');
+		var originalText = originalElement.textContent;
+		var hiddenText = hideCharacters(originalText);
+		originalElement.innerHTML = '<span class="hidden-text">' + hiddenText
+				+ '</span>';
+	</script> -->
 
 </body>
 </html>

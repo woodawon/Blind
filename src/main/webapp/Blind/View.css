@@ -7,6 +7,23 @@ body, div, dl, dt, dd, ul, ol, li, h1, h2, h3, h4, h5, h6, p, table, th, td, for
     word-wrap: break-word;
 }
 
+#userViewTitle {
+	margin-bottom: 20px;
+}
+
+
+#dat {
+	margin-inline: 5px;
+}
+
+#userInfo {
+	display: flex;
+}
+
+.hidden-text {
+	display: inline-block;
+}
+
 .schoolInfo{
 	display: flex;
 	margin-left: 35%;
