@@ -140,19 +140,6 @@ String ChName = (String) session.getAttribute("ChName");
 		</div>
 
 	</div>
-	<!-- <script>
-		// 문자열을 받아와 각 문자를 가리고 새로운 문자열을 반환하는 함수
-		function hideCharacters(text) {
-			return text[0] + '*'.repeat(text.length - 1);
-		}
-
-		// id가 uId인 요소의 내용을 가져와 가려진 문자열로 교체
-		var originalElement = document.getElementById('uId');
-		var originalText = originalElement.textContent;
-		var hiddenText = hideCharacters(originalText);
-		originalElement.innerHTML = '<span class="hidden-text">' + hiddenText
-				+ '</span>';
-	</script> -->
 
 </body>
 </html>

@@ -115,9 +115,21 @@ ArrayList<BoardDTO> reviewList = dao.getReviewsBySchool(scName);
 		for (BoardDTO review : reviewList) {
 		%>
 		<div class="wrap-comment comment_area">
-			<p class="name"><%=review.getChname()%></p>
-			<p>·</p>
-			<p><%=review.getId()%></p>
+			<div id="comment_user">
+				<p id="comment_p"><%=review.getChname()%></p>
+				<p id="comment_p">·</p>
+				<p id="comment_p" class="uId">
+					<%
+					String[] getId = review.getId().split("");
+					String star = "";
+					for (int i = 0; i < getId.length - 1; i++) {
+						star += "*";
+					}
+					String setId = getId[0] + star;
+					%>
+					<%=setId%>
+				</p>
+			</div>
 			<p class="name">
 				<%=review.getSchool()%>
 				- 평점:
@@ -140,6 +152,6 @@ ArrayList<BoardDTO> reviewList = dao.getReviewsBySchool(scName);
 		}
 		%>
 	</div>
-	
+
 </body>
 </html>
