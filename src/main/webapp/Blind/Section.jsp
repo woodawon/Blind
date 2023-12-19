@@ -460,7 +460,8 @@ ArrayList<BoardDTO> list;
 
 	<div class="ilbe">
 		<h5>베스트</h5>
-		<!-- 게시물 별 조회수 DB 가져와서, 조회수 가장 높은 순으로 li 띄우면 됨 -->
+		<!-- 게시물 별 조회수 DB 가져와서, 좋아요 가장 높은 순으로 li 띄우면 됨 -->
+		<p style="margin-top : 50px;">좋아요 기능 추가하고 가장 높은 좋아요 순으로 할 예정</p>
 		<ol>
 			<li></li>
 			<li></li>

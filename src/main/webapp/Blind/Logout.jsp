@@ -9,7 +9,7 @@
 <body>
 <%
 	session.setAttribute("logined", null);
-	request.getRequestDispatcher("home.jsp").forward(request, response);
+	request.getRequestDispatcher("School_Review.jsp").forward(request, response);
 %>
 </body>
 </html>
