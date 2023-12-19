@@ -25,76 +25,68 @@ import javax.servlet.http.Part;
 @WebServlet("/FileUploadServlet")
 @MultipartConfig
 public class FileUploadServlet extends HttpServlet {
-	/**
-	 * 
-	 */
-	public Connection con;
 
-	@Override
-	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+    @Override
+    protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        Part filePart = req.getPart("file");
+        String fileName = Paths.get(filePart.getSubmittedFileName()).getFileName().toString();
 
-		Part filePart = req.getPart("file");
-		String fileName = Paths.get(filePart.getSubmittedFileName()).getFileName().toString(); // MSIE fix.
+        // 파일을 서버에 저장할 물리적인 경로
+        Path filePath = Paths.get("C:\\Picture\\", fileName);
 
-		// 파일을 서버에 저장할 물리적인 경로
-		Path filePath = Paths.get("C:\\Picture\\", fileName);
+        try (InputStream fileContent = filePart.getInputStream(); 
+             OutputStream os = Files.newOutputStream(filePath)) {
 
-		try (InputStream fileContent = filePart.getInputStream(); OutputStream os = Files.newOutputStream(filePath)) {
+            // 파일을 복사하고 닫기
+            byte[] buffer = new byte[8192];
+            int bytesRead;
+            while ((bytesRead = fileContent.read(buffer)) != -1) {
+                os.write(buffer, 0, bytesRead);
+            }
+        }
 
-			// 파일을 복사하고 닫기
-			byte[] buffer = new byte[8192];
-			int bytesRead;
-			while ((bytesRead = fileContent.read(buffer)) != -1) {
-				os.write(buffer, 0, bytesRead);
-			}
-		}
-		HttpSession session = req.getSession();
+        HttpSession session = req.getSession();
 
-		// 데이터베이스에 파일 경로 저장
-		String dbPath = "C:\\Picture\\" + fileName;
+        // 데이터베이스에 파일 경로 저장
+        String dbPath = "C:\\Picture\\" + fileName;
 
-		try {
-			saveFilePathToDatabase(dbPath, session);
-		} catch (ClassNotFoundException e) {
-			e.printStackTrace();
-		}
-		resp.sendRedirect("/Blind/Blind/User_Info.jsp");
-//		RequestDispatcher dispatcher = req.getRequestDispatcher("/Blind/Blind/User_Info.jsp");
-//		dispatcher.forward(req, resp);
-	}
+        try {
+            saveFilePathToDatabase(dbPath, session);
+        } catch (ClassNotFoundException e) {
+            e.printStackTrace();
+        }
 
-	private void saveFilePathToDatabase(String filePath, HttpSession session) throws ClassNotFoundException {
+        session.setAttribute("UserImg", "img");
+        resp.sendRedirect("/Blind/Blind/User_Info.jsp");
+    }
 
-		Class.forName("oracle.jdbc.OracleDriver");
-		String url = "jdbc:oracle:thin:@localhost:1521:xe";
-		String username = "blind";
-		String password = "1234";
+    private void saveFilePathToDatabase(String filePath, HttpSession session) throws ClassNotFoundException {
+        Class.forName("oracle.jdbc.OracleDriver");
+        String url = "jdbc:oracle:thin:@localhost:1521:xe";
+        String username = "blind";
+        String password = "1234";
 
-		String id = session.getAttribute("UserId").toString();
-		String pw = session.getAttribute("UserPW").toString();
+        String id = session.getAttribute("UserId").toString();
+        String pw = session.getAttribute("UserPW").toString();
 
-		try (Connection connection = DriverManager.getConnection(url, username, password)) {
-			String query = "update member set image=? where id=? and pwd=?";
+        try (Connection connection = DriverManager.getConnection(url, username, password)) {
+            String query = "UPDATE member SET image = ? WHERE id = ? AND pwd = ?";
 
-			try (PreparedStatement psmt = connection.prepareStatement(query)) {
-				// 이미지 파일 읽기
-				byte[] imageData = Files.readAllBytes(Paths.get(filePath));
-				ByteArrayInputStream bis = new ByteArrayInputStream(imageData);
+            try (PreparedStatement psmt = connection.prepareStatement(query)) {
+                // 이미지 파일 읽기
+                byte[] imageData = Files.readAllBytes(Paths.get(filePath));
+                ByteArrayInputStream bis = new ByteArrayInputStream(imageData);
 
-				// 이미지 파일을 데이터베이스 업데이트
-				psmt.setBinaryStream(1, bis, imageData.length);
-				psmt.setString(2, id);
-				psmt.setString(3, pw);
+                // 이미지 파일 DB에 저장
+                psmt.setBinaryStream(1, bis, imageData.length);
+                psmt.setString(2, id);
+                psmt.setString(3, pw);
 
-				psmt.executeUpdate();
-				session.setAttribute("UserImg", "img");
-
-				// 사용한 자원 정리
-				bis.close();
-			}
-		} catch (SQLException | IOException e) {
-			e.printStackTrace();
-		}
-	}
-
+                psmt.executeUpdate();
+            }
+        } catch (SQLException | IOException e) {
+            e.printStackTrace();
+        }
+    }
 }
+

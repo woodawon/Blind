@@ -34,7 +34,7 @@
 				<a href="Login.jsp" class="login"><strong>로그인</strong></a> <a
 					href="Register.jsp" class="member"><strong>회원가입</strong></a>
 			</div>
-			<a onclick="openModal();">프로필</a>
+			<img src="images/user.png" src="프로필" onclick="openModal();" id="profile" />
 		</div>
 
 	</div>

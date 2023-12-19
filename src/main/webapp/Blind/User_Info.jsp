@@ -29,7 +29,7 @@
 					if (resultSet.next()) {
 						Blob imageBlob = resultSet.getBlob("image");
 						InputStream inputStream = imageBlob.getBinaryStream();
-						
+
 						// InputStream을 byte 배열로 변환
 						byte[] buffer = new byte[4096];
 						ByteArrayOutputStream outputStream = new ByteArrayOutputStream();
@@ -41,11 +41,12 @@
 						byte[] imageBytes = outputStream.toByteArray();
 						inputStream.close();
 						outputStream.close();
-						
-						// Base64로 인코딩된 이미지 데이터를 반환
+
+						// 인코딩된 이미지 데이터 리턴
 						return "data:image/png;base64," + Base64.getEncoder().encodeToString(imageBytes);
-					
+
 					}
+					return null;
 				}
 			}
 		} catch (SQLException | IOException e) {
@@ -54,12 +55,19 @@
 		return null;
 	}%>
 
+<%
+String imagePath = getImagePathFromDatabase(session);
+if (imagePath != null) {
+	session.setAttribute("UserImg", "img");
+}
+%>
+
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="UTF-8">
 <title>프로필</title>
-
+<meta name="referrer" content="no-referrer-when-downgrade" />
 <%@include file="Footer.jsp"%>
 <link rel="stylesheet" href="./User_info.css">
 <link rel="stylesheet" href="./global.css">
@@ -84,34 +92,30 @@
 		<h3 class="H3">프로필</h3>
 		<div class="allP">
 			<%
-			if (session.getAttribute("UserImg") != null) {	
+			if (session.getAttribute("UserImg") != null) {
 			%>
-			<img src="<%=getImagePathFromDatabase(session) + "?timestamp=" + System.currentTimeMillis()%>" alt="Uploaded Image">
+			<img id="profileImage" alt="Uploaded Image" src="<%=imagePath%>">
 			<%
 			} else {
 			%>
-			<img class="Picture" alt="logo" src="./images/blind.png">
+			<img class="Picture" alt="logo" src="./images/blind.png"
+				id="profileImage">
 			<%
 			}
 			%>
 			<form method="post" action="<%="/Blind/FileUploadServlet"%>"
 				enctype="multipart/form-data">
 				<input type="file" name="file" accept="image/*"> <input
-					type="text" name="id" value="<%=session.getAttribute("UserId")%>" />
-				<input type="text" name="pw"
-					value="<%=session.getAttribute("UserPW")%>" /> <input
 					type="submit" value="Upload">
 			</form>
 			<div class="secP">
 				<p class="Email">
 					이메일 :
-					<%=email%>
-				</p>
+					<%=email%></p>
 				<br>
 				<p class="School">
 					학교명 :
-					<%=school%>
-				</p>
+					<%=school%></p>
 			</div>
 		</div>
 
@@ -132,11 +136,11 @@
 		</div>
 	</div>
 	<script>
-		function openModal() { // 활성화
+		function openModal() {
 			document.getElementById('myModal').style.display = 'block';
 			document.getElementById('hidden').disabled = false;
 		}
-		function closeModal() { // 비활성화
+		function closeModal() {
 			document.getElementById('myModal').style.display = 'none';
 			document.getElementById('hidden').disabled = true;
 		}

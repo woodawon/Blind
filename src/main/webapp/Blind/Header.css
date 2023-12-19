@@ -79,3 +79,7 @@ strong {
 #myModal {
 	display: none;
 }
+
+#profile {
+	width: 50px;
+}

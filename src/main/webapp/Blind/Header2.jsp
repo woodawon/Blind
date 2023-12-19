@@ -30,9 +30,10 @@
 		<div class="inter">
 			<a href="Write.jsp" class="writing"><strong>글쓰기</strong></a>
 			<div class="lomem">
-					<a href="home.jsp" class="writing"><strong>로그아웃</strong></a>
+				<a href="home.jsp" class="writing"><strong>로그아웃</strong></a>
 			</div>
-			<a href="User_Info.jsp">프로필</a>
+			<a href="User_Info.jsp"><img src="images/user.png" src="프로필"
+				onclick="openModal();" id="profile"></a>
 		</div>
 
 	</div>
