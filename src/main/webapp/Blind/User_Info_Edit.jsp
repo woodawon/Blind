@@ -69,7 +69,7 @@ if (imagePath != null) {
 }
 %>
 <%@include file="Footer.jsp"%>
-<link rel="stylesheet" href="./User_info.css">
+<link rel="stylesheet" href="./User_info_Edit.css">
 <link rel="stylesheet" href="./global.css">
 </head>
 <body>
