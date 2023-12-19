@@ -23,7 +23,7 @@
 				<li onclick="changeStyle(this)">자유 게시판</li>
 				<li onclick="changeStyle(this)">썸&연애</li>
 				<li onclick="changeStyle(this)">급식 자랑</li>
-				<li onclick="changeStyle(this)">진학&성적</li>
+				<li onclick="changeStyle(this)">전학&성적</li>
 				<li onclick="changeStyle(this)">헬스&다이어트</li>
 				<li onclick="changeStyle(this)">여행&먹방</li>
 			</ul>

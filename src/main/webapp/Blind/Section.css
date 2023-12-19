@@ -1,3 +1,29 @@
+* {
+    margin:0;
+    box-sizing: border-box;
+}
+
+#like {
+	margin-right: 36px;
+}
+
+#tag {
+	color: gray;
+	border: 0.5px solid silver;
+	margin-right: 10px;
+	font-size: 10pt;
+	padding: 0 6px 0 7px;
+}
+
+#topicPackage {
+	display: flex;
+}
+
+ul {
+	padding-left: 0;
+	margin-bottom: 25px;
+}
+
 .Topic {
 	width: 50%;
 	margin-left: 10%;
@@ -58,13 +84,10 @@ h5 {
 
 li {
 	margin-top: 5px;
+	list-style-type: none;
+	display: flex;
+	justify-content: space-between;
 }
-
-* {
-    margin:0;
-    box-sizing: border-box;
-}
-
 
 [name="slide"] { display: none; }
 .slidebox { 
@@ -122,14 +145,6 @@ input[type="text"] {
 	 text-align: left;
     width: 740px;
 }
-
-
-
-
-
-
-
-
 
 
 * {

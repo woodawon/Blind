@@ -14,7 +14,7 @@
 	String sql = "INSERT INTO member VALUES (?, ?, sysdate, ?, ?, ?, ?)";
 	PreparedStatement psmt = jdbc.con.prepareStatement(sql);
 
-	String id = request.getParameter("ID");
+	String id = session.getAttribute("canId").toString();
 	String pw = request.getParameter("PW");
 	String school = request.getParameter("SCHOOL");
 	String pw2 = request.getParameter("PW2");
@@ -32,7 +32,7 @@
 	// 연결 닫기
 	jdbc.close();
 	session.setAttribute("Joined", "joined");
-	response.sendRedirect("Register.jsp");
+	request.getRequestDispatcher("Register.jsp").forward(request, response);
 	%>
 </body>
 </html>

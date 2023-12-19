@@ -1,3 +1,4 @@
+<%@page import="utils.JSFunction"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <!DOCTYPE html>
@@ -13,12 +14,13 @@
 
 	<%
 	if (session.getAttribute("Joined") != null) {
-	%>
-	<script>
-		alert("회원가입이 완료되었습니다.");
-	</script>
-	<%
-	response.sendRedirect("Login.jsp");
+		String script = ""  
+				+ "<script>" 
+				+ "		alert('회원가입이 완료되었습니다.'); " 
+				+ "</script>";
+	out.println(script); 
+	session.setAttribute("Joined", null);
+	request.getRequestDispatcher("Login.jsp").forward(request, response);
 	%>
 	<%
 	}
@@ -41,16 +43,21 @@
 				</li>
 			</ul>
 		</div>
-		<form action="RegisterUpdate.jsp" class="indiv" method="post">
+		<form class="indiv2" action="Duplicate_Check.jsp">
 			<input type="text" name="ID" placeholder="id를 입력하세요" required
 				minlength="4"><br> <input type="submit" id="in"
-				value="중복 조회" class="button"> <br> <input type="text"
-				name="PW" placeholder="pw를 입력하세요" required maxlength="12"><br>
-			<input type="text" name="PW2" placeholder="pw 확인" required
-				maxlength="12"> <br> <input type="text" name="EMAIL"
-				placeholder="email" required> <br> <input type="text"
-				name="SCHOOL" placeholder="학교" required> <br> <input
-				type="submit" id="in" value="회원가입" class="button"> <br>
+				value="중복 조회" class="button">
+		</form>
+		<form action="RegisterUpdate.jsp" class="indiv" method="post">
+			<div>
+				<br> <input type="text" name="PW" placeholder="pw를 입력하세요"
+					required maxlength="12"><br> <input type="text"
+					name="PW2" placeholder="pw 확인" required maxlength="12"> <br>
+				<input type="text" name="EMAIL" placeholder="email" required>
+				<br> <input type="text" name="SCHOOL" placeholder="학교" required>
+				<br> <input type="submit" id="in" value="회원가입" class="button">
+				<br>
+			</div>
 		</form>
 	</section>
 </body>

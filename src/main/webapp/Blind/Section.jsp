@@ -17,9 +17,10 @@ ArrayList<BoardDTO> list;
 </head>
 <body>
 	<%@ include file="Header.jsp"%>
-	
+
 	<form action="Section_Process.jsp">
-		<input type="text" placeholder="관심있는 내용을  검색해보세요!" class="inp" name="search">
+		<input type="text" placeholder="관심있는 내용을  검색해보세요!" class="inp"
+			name="search">
 	</form>
 	<div class="Topic">
 		<div class="Tothe">
@@ -36,8 +37,11 @@ ArrayList<BoardDTO> list;
 			for (int i = 0; i < list.size(); i++) {
 			%>
 			<li>
-				<p><%=list.get(i).getTitle()%></p>
-				<p><%=list.get(i).getGood()%></p>
+				<div id="topicPackage">
+					<p id="tag">토픽 베스트</p>
+					<p><%=list.get(i).getTitle()%></p>
+				</div>
+				<p id="like"><%=list.get(i).getGood()%></p>
 			</li>
 			<%
 			}
@@ -62,7 +66,7 @@ ArrayList<BoardDTO> list;
 			%>
 			<li>
 				<p><%=list.get(i).getTitle()%></p>
-				<p><%=list.get(i).getGood()%></p>
+				<p id="like"><%=list.get(i).getGood()%></p>
 			</li>
 			<%
 			}
@@ -89,7 +93,7 @@ ArrayList<BoardDTO> list;
 				%>
 				<li>
 					<p><%=list.get(i).getTitle()%></p>
-					<p><%=list.get(i).getGood()%></p>
+					<p id="like"><%=list.get(i).getGood()%></p>
 				</li>
 				<%
 				}
@@ -102,19 +106,19 @@ ArrayList<BoardDTO> list;
 			<div class="Tothe">
 				<h3 class="H3">
 					<img class="logo"
-						src="https://img.freepik.com/premium-vector/food-tray-icon-isolated-on-white-background-vector-illustration_736051-483.jpg">급식자랑
+						src="https://img.freepik.com/premium-vector/food-tray-icon-isolated-on-white-background-vector-illustration_736051-483.jpg">급식 자랑
 				</h3>
 				<a href="cafeteria.jsp" class="A">더보기 &gt;</a>
 			</div>
 			<ul>
 				<%
 				dao = new BoardDAO(application);
-				list = dao.previewPost("급식자랑");
+				list = dao.previewPost("급식 자랑");
 				for (int i = 0; i < list.size(); i++) {
 				%>
 				<li>
 					<p><%=list.get(i).getTitle()%></p>
-					<p><%=list.get(i).getGood()%></p>
+					<p id="like"><%=list.get(i).getGood()%></p>
 				</li>
 				<%
 				}
@@ -141,7 +145,7 @@ ArrayList<BoardDTO> list;
 				%>
 				<li>
 					<p><%=list.get(i).getTitle()%></p>
-					<p><%=list.get(i).getGood()%></p>
+					<p id="like"><%=list.get(i).getGood()%></p>
 				</li>
 				<%
 				}
@@ -166,7 +170,7 @@ ArrayList<BoardDTO> list;
 				%>
 				<li>
 					<p><%=list.get(i).getTitle()%></p>
-					<p><%=list.get(i).getGood()%></p>
+					<p id="like"><%=list.get(i).getGood()%></p>
 				</li>
 				<%
 				}
@@ -193,7 +197,7 @@ ArrayList<BoardDTO> list;
 				%>
 				<li>
 					<p><%=list.get(i).getTitle()%></p>
-					<p><%=list.get(i).getGood()%></p>
+					<p id="like"><%=list.get(i).getGood()%></p>
 				</li>
 				<%
 				}
@@ -218,7 +222,7 @@ ArrayList<BoardDTO> list;
 				%>
 				<li>
 					<p><%=list.get(i).getTitle()%></p>
-					<p><%=list.get(i).getGood()%></p>
+					<p id="like"><%=list.get(i).getGood()%></p>
 				</li>
 				<%
 				}
@@ -245,7 +249,7 @@ ArrayList<BoardDTO> list;
 				%>
 				<li>
 					<p><%=list.get(i).getTitle()%></p>
-					<p><%=list.get(i).getGood()%></p>
+					<p id="like"><%=list.get(i).getGood()%></p>
 				</li>
 				<%
 				}
@@ -270,7 +274,7 @@ ArrayList<BoardDTO> list;
 				%>
 				<li>
 					<p><%=list.get(i).getTitle()%></p>
-					<p><%=list.get(i).getGood()%></p>
+					<p id="like"><%=list.get(i).getGood()%></p>
 				</li>
 				<%
 				}
@@ -285,19 +289,19 @@ ArrayList<BoardDTO> list;
 			<div class="Tothe">
 				<h3 class="H3">
 					<img class="logo"
-						src="https://d2u3dcdbebyaiu.cloudfront.net/img/web/topic_logo_kr_1587367371.png">반려동물
+						src="https://d2u3dcdbebyaiu.cloudfront.net/img/web/topic_logo_kr_1587367371.png">반려 동물
 				</h3>
 				<a href="animal.jsp" class="A">더보기 &gt;</a>
 			</div>
 			<ul>
 				<%
 				dao = new BoardDAO(application);
-				list = dao.previewPost("반려동물");
+				list = dao.previewPost("반려 동물");
 				for (int i = 0; i < list.size(); i++) {
 				%>
 				<li>
 					<p><%=list.get(i).getTitle()%></p>
-					<p><%=list.get(i).getGood()%></p>
+					<p id="like"><%=list.get(i).getGood()%></p>
 				</li>
 				<%
 				}
@@ -322,7 +326,7 @@ ArrayList<BoardDTO> list;
 				%>
 				<li>
 					<p><%=list.get(i).getTitle()%></p>
-					<p><%=list.get(i).getGood()%></p>
+					<p id="like"><%=list.get(i).getGood()%></p>
 				</li>
 				<%
 				}
@@ -349,7 +353,7 @@ ArrayList<BoardDTO> list;
 				%>
 				<li>
 					<p><%=list.get(i).getTitle()%></p>
-					<p><%=list.get(i).getGood()%></p>
+					<p id="like"><%=list.get(i).getGood()%></p>
 				</li>
 				<%
 				}
@@ -374,7 +378,7 @@ ArrayList<BoardDTO> list;
 				%>
 				<li>
 					<p><%=list.get(i).getTitle()%></p>
-					<p><%=list.get(i).getGood()%></p>
+					<p id="like"><%=list.get(i).getGood()%></p>
 				</li>
 				<%
 				}
@@ -411,7 +415,7 @@ ArrayList<BoardDTO> list;
 				%>
 				<li>
 					<p><%=list.get(i).getTitle()%></p>
-					<p><%=list.get(i).getGood()%></p>
+					<p id="like"><%=list.get(i).getGood()%></p>
 				</li>
 				<%
 				}

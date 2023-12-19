@@ -1,5 +1,7 @@
 package membership;
 
+import java.util.ArrayList;
+
 import common.JDBConnect;
 
 public class MemberDAO extends JDBConnect {
@@ -61,6 +63,27 @@ public class MemberDAO extends JDBConnect {
 			e.printStackTrace();
 			return 0;
 		}
+	}
+	
+	public int checkID(String id) {
+		ArrayList<String> list = new ArrayList<>();
+		try {
+			String query = "select id from member";
+			psmt = con.prepareStatement(query);
+			rs = psmt.executeQuery();
+			while (rs.next()) {
+				list.add(rs.getString("id"));
+			}
+			for(int i=0;i < list.size();i++) {
+				if(id.equals(list.get(i))) {
+					return 0;
+				}
+			}
+			
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return 1;
 	}
 
 }

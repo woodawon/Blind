@@ -97,9 +97,9 @@ dao.close();
 		<div class="postLeft">
 			<ul>
 				<li class="caeegory"><%=dto.getTag()%></li>
-				<li class="title"><h3>
-						<strong><%=dto.getTitle()%>
-					</h3> </strong></li>
+				<li class="title" onclick="View.jsp"><h3>
+						<a href="BoardProcess.jsp?title=<%=dto.getTitle()%>" id="title"><%=dto.getTitle()%></a>
+					</h3></li>
 				<li class="content"><%=dto.getContent()%></li>
 				<li class="name">
 					<p><%=dto.getChname()%></p>
@@ -122,9 +122,9 @@ dao.close();
 		<div class="postRight">
 			<ul>
 				<li class="caeegory"><%=dto.getTag()%></li>
-				<li class="title"><h3>
-						<strong><%=dto.getTitle()%>
-					</h3> </strong></li>
+				<li class="title" onclick="View.jsp"><h3>
+						<a href="BoardProcess.jsp?title=<%=dto.getTitle()%>" id="title"><%=dto.getTitle()%></a>
+					</h3></li>
 				<li class="content"><%=dto.getContent()%></li>
 				<li class="name">
 					<p><%=dto.getChname()%></p>

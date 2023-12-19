@@ -53,6 +53,7 @@ body, div, dl, dt, dd, ul, ol, li, h1, h2, h3, h4, h5, h6, p, table, th, td, for
 
 .article_info{
 	margin-top: 30px;
+	display: flex;
 }
 
 .article-comments{
@@ -112,10 +113,8 @@ body, div, dl, dt, dd, ul, ol, li, h1, h2, h3, h4, h5, h6, p, table, th, td, for
 
 .wrap-info{
     position: relative;
-    margin-top: 8px;
-    font-size: 12px;
-    margin-top: 30px;
-    margin-bottom: 30px;
+    margin-top: 1px;
+    font-size: 14px;
 }
 
 p{

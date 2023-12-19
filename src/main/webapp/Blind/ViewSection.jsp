@@ -50,11 +50,6 @@ String ChName = (String) session.getAttribute("ChName");
 						<li><strong><h2><%=Title%></strong>
 							</h2></li>
 						<li><a href=""><%=ChName%></a></li>
-						<div data-v-5d915d2e="" class="wrap-info">
-							<span data-v-5d915d2e="" class="date"><%=PostDate%></span> <span
-								data-v-5d915d2e="" class="pv"><%=dto.getVisitcount()%></span> <span
-								data-v-5d915d2e="" class="cmt"><%=list.size()%></span>
-						</div>
 					</ul>
 				</div>
 
@@ -67,6 +62,10 @@ String ChName = (String) session.getAttribute("ChName");
 						<%=dto.getContent()%>
 					</p>
 					<div data-v-5d915d2e="" class="article_info">
+						<div data-v-5d915d2e="" class="wrap-info">
+							<span data-v-5d915d2e="" class="date"><%=PostDate%></span> <span
+								data-v-5d915d2e="" class="pv"><%=dto.getVisitcount()%></span>
+						</div>
 						<div data-v-5d915d2e="" class="info">
 							<a data-v-5d915d2e="" class="like"><%=dto.getGood()%></a> <a
 								data-v-5d915d2e="" class="cmt"><%=list.size()%></a>

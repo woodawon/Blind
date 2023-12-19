@@ -7,7 +7,7 @@
 <link rel="stylesheet" href="./Header.css">
 <link rel="stylesheet" href="./global.css">
 <link id="hidden" rel="stylesheet" type="text/css"
-	href="User_Info_Hidden.css" disabled>
+	href="User_Info_Hidden_Header.css" disabled>
 <meta charset="UTF-8">
 <title>Insert title here</title>
 </head>
@@ -42,8 +42,8 @@
 	<div id="myModal">
 		<div class="modal-content">
 			<span class="close" onclick="closeModal()">&times;</span>
-			<p>로그인 해야 프로필을 확인할 수 있습니다.</p>
-			<p>로그인을 하시겠습니까?</p>
+			<p id="first">로그인 해야 프로필을 확인할 수 있습니다.</p>
+			<p id="second">로그인을 하시겠습니까?</p>
 			<button onclick="movePage()">네</button>
 			<button onclick="closeModal()">아니요</button>
 		</div>
