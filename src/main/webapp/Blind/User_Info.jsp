@@ -103,11 +103,6 @@ if (imagePath != null) {
 			<%
 			}
 			%>
-			<form method="post" action="<%="/Blind/FileUploadServlet"%>"
-				enctype="multipart/form-data">
-				<input type="file" name="file" accept="image/*"> <input
-					type="submit" value="Upload">
-			</form>
 			<div class="secP">
 				<p class="Email">
 					이메일 :

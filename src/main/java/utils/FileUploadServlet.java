@@ -57,7 +57,7 @@ public class FileUploadServlet extends HttpServlet {
         }
 
         session.setAttribute("UserImg", "img");
-        resp.sendRedirect("/Blind/Blind/User_Info.jsp");
+        resp.sendRedirect("/Blind/Blind/User_Info_Edit.jsp");
     }
 
     private void saveFilePathToDatabase(String filePath, HttpSession session) throws ClassNotFoundException {

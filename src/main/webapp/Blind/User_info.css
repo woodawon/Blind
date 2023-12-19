@@ -35,6 +35,12 @@ section {
 	cursor: pointer;
 }
 
+.fileForm {
+	position: fixed;
+    top: 47%;
+    left: 22%;
+}
+
 .edit {
 	position: fixed;
 	top: 65%;
