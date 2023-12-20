@@ -25,7 +25,7 @@
 			</li>
 		</ul>
 		<div class="pwf">
-			<h3>비밀번호를 재설정할 이메일을 입력해주세요</h3>
+			<h3>비밀번호를 찾고 싶은 계정의 이메일을 입력해주세요</h3>
 			<br>
 			<form action="Password_Find_Process.jsp">
 				<input type="text" name="emailCheck"> <input type="submit" value="조회"

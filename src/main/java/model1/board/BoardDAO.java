@@ -233,13 +233,13 @@ public class BoardDAO extends JDBConnect {
 		return dto;
 	}
 
-	public void updateVisitCount(String num) { // 조회수 ++시키는 메서드
+	public void updateVisitCount(String title) { // 조회수 ++시키는 메서드
 		// 쿼리문 준비
-		String query = "update board set " + " visitcount=visitcount+1" + " where num=?";
+		String query = "update board set " + " visitcount=visitcount+1" + " where title=?";
 
 		try {
 			psmt = con.prepareStatement(query);
-			psmt.setString(1, num);
+			psmt.setString(1, title);
 			psmt.executeQuery();
 		} catch (Exception e) {
 			System.out.println("게시물 조회수 증가 중 예외 발생");
@@ -308,6 +308,7 @@ public class BoardDAO extends JDBConnect {
 				dto.setId(rs.getString(5));
 				dto.setPostdate(rs.getDate(6));
 				dto.setChname(rs.getString(7));
+				dto.setVisitcount(rs.getString(4));
 			}
 		} catch (Exception e) {
 			System.out.println("게시물 조회 중 예외 발생");

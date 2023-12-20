@@ -9,12 +9,13 @@
 response.setContentType("text/html; charset=UTF-8");
 request.setCharacterEncoding("UTF-8");
 
-String num = request.getParameter("num");
 BoardDAO dao = new BoardDAO(application);
 
-dao.updateVisitCount(num); // 조회수 증가
+String title = (String) session.getAttribute("Title");
+String num = request.getParameter("num");
+dao.updateVisitCount(title); // 조회수 증가
 BoardDTO dto = dao.selectView(num); // 게시물 가져오기
-
+dao.close();
 String mail = (String) session.getAttribute("UserMail");
 String school = (String) session.getAttribute("userCH");
 String id = (String) session.getAttribute("UserId");
@@ -24,6 +25,7 @@ String Content = (String) session.getAttribute("Content");
 Date PostDate = (Date) session.getAttribute("PostDate");
 String Title = (String) session.getAttribute("Title");
 String ChName = (String) session.getAttribute("ChName");
+String VisitCount = (String) session.getAttribute("VisitCount");
 %>
 <!DOCTYPE html>
 <html>
@@ -49,7 +51,7 @@ String ChName = (String) session.getAttribute("ChName");
 					</ul>
 					<div data-v-5d915d2e="" class="wrap-info">
 						<span data-v-5d915d2e="" class="date"><%=PostDate%></span> <span
-							data-v-5d915d2e="" class="pv"><%=dto.getVisitcount()%></span> <a
+							data-v-5d915d2e="" class="pv"><%=VisitCount%></span> <a
 							data-v-5d915d2e="" class="cmt"><%=list.size()%></a>
 					</div>
 				</div>

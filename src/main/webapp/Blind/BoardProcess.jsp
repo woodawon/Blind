@@ -21,7 +21,8 @@ if (dto.getTitle() != null) {
 	session.setAttribute("PostDate", dto.getPostdate());
 	session.setAttribute("Title", dto.getTitle());
 	session.setAttribute("ChName", dto.getChname());
-   response.sendRedirect("View.jsp");
+	session.setAttribute("VisitCount", dto.getVisitcount());
+   	response.sendRedirect("View.jsp");
 } else {
    request.setAttribute("comErr", "다시 시도해주세요");
    request.getRequestDispatcher("View.jsp").forward(request, response);
