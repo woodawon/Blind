@@ -309,6 +309,7 @@ public class BoardDAO extends JDBConnect {
 				dto.setPostdate(rs.getDate(6));
 				dto.setChname(rs.getString(7));
 				dto.setVisitcount(rs.getString(4));
+				dto.setGood(rs.getString(8));
 			}
 		} catch (Exception e) {
 			System.out.println("게시물 조회 중 예외 발생");
@@ -389,6 +390,34 @@ public class BoardDAO extends JDBConnect {
 	    }
 
 	    return list;
+	}
+	
+	public void GoodUpdate(String title) {
+		try {
+			String query = "update board set good=good+1 where title=?";
+			psmt = con.prepareStatement(query);
+			psmt.setString(1, title);
+			psmt.executeQuery();
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+	}
+	
+	public ArrayList<BoardDTO> bestPost() {
+		ArrayList<BoardDTO> list = new ArrayList<>();
+		try {
+			String query = "select title from board where good>5"; // 좋아요 5개 이상 받은 게시물만이 베스트 게시물에 오를 수 있음.
+			psmt = con.prepareStatement(query);
+			rs = psmt.executeQuery();
+			while(rs.next()) {
+				BoardDTO dto = new BoardDTO();
+				dto.setTitle(rs.getString("title"));
+				list.add(dto);
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return list;
 	}
 
 }

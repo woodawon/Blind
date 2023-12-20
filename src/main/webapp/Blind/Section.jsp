@@ -40,8 +40,9 @@ ArrayList<BoardDTO> list;
 				<div id="topicPackage">
 					<p id="tag">토픽 베스트</p>
 					<form action="BoardProcess.jsp">
-					<input id="titleClick" type="submit" name="title" value="<%=list.get(i).getTitle()%>" />
-				</form>
+						<input id="titleClick" type="submit" name="title"
+							value="<%=list.get(i).getTitle()%>" />
+					</form>
 				</div>
 				<p id="like"><%=list.get(i).getGood()%></p>
 			</li>
@@ -68,7 +69,8 @@ ArrayList<BoardDTO> list;
 			%>
 			<li>
 				<form action="BoardProcess.jsp">
-					<input id="titleClick" type="submit" name="title" value="<%=list.get(i).getTitle()%>" />
+					<input id="titleClick" type="submit" name="title"
+						value="<%=list.get(i).getTitle()%>" />
 				</form>
 				<p id="like"><%=list.get(i).getGood()%></p>
 			</li>
@@ -97,8 +99,9 @@ ArrayList<BoardDTO> list;
 				%>
 				<li>
 					<form action="BoardProcess.jsp">
-					<input id="titleClick" type="submit" name="title" value="<%=list.get(i).getTitle()%>" />
-				</form>
+						<input id="titleClick" type="submit" name="title"
+							value="<%=list.get(i).getTitle()%>" />
+					</form>
 					<p id="like"><%=list.get(i).getGood()%></p>
 				</li>
 				<%
@@ -112,7 +115,8 @@ ArrayList<BoardDTO> list;
 			<div class="Tothe">
 				<h3 class="H3">
 					<img class="logo"
-						src="https://img.freepik.com/premium-vector/food-tray-icon-isolated-on-white-background-vector-illustration_736051-483.jpg">급식 자랑
+						src="https://img.freepik.com/premium-vector/food-tray-icon-isolated-on-white-background-vector-illustration_736051-483.jpg">급식
+					자랑
 				</h3>
 				<a href="cafeteria.jsp" class="A">더보기 &gt;</a>
 			</div>
@@ -124,8 +128,9 @@ ArrayList<BoardDTO> list;
 				%>
 				<li>
 					<form action="BoardProcess.jsp">
-					<input id="titleClick" type="submit" name="title" value="<%=list.get(i).getTitle()%>" />
-				</form>
+						<input id="titleClick" type="submit" name="title"
+							value="<%=list.get(i).getTitle()%>" />
+					</form>
 					<p id="like"><%=list.get(i).getGood()%></p>
 				</li>
 				<%
@@ -153,8 +158,9 @@ ArrayList<BoardDTO> list;
 				%>
 				<li>
 					<form action="BoardProcess.jsp">
-					<input id="titleClick" type="submit" name="title" value="<%=list.get(i).getTitle()%>" />
-				</form>
+						<input id="titleClick" type="submit" name="title"
+							value="<%=list.get(i).getTitle()%>" />
+					</form>
 					<p id="like"><%=list.get(i).getGood()%></p>
 				</li>
 				<%
@@ -180,8 +186,9 @@ ArrayList<BoardDTO> list;
 				%>
 				<li>
 					<form action="BoardProcess.jsp">
-					<input id="titleClick" type="submit" name="title" value="<%=list.get(i).getTitle()%>" />
-				</form>
+						<input id="titleClick" type="submit" name="title"
+							value="<%=list.get(i).getTitle()%>" />
+					</form>
 					<p id="like"><%=list.get(i).getGood()%></p>
 				</li>
 				<%
@@ -209,8 +216,9 @@ ArrayList<BoardDTO> list;
 				%>
 				<li>
 					<form action="BoardProcess.jsp">
-					<input id="titleClick" type="submit" name="title" value="<%=list.get(i).getTitle()%>" />
-				</form>
+						<input id="titleClick" type="submit" name="title"
+							value="<%=list.get(i).getTitle()%>" />
+					</form>
 					<p id="like"><%=list.get(i).getGood()%></p>
 				</li>
 				<%
@@ -236,8 +244,9 @@ ArrayList<BoardDTO> list;
 				%>
 				<li>
 					<form action="BoardProcess.jsp">
-					<input id="titleClick" type="submit" name="title" value="<%=list.get(i).getTitle()%>" />
-				</form>
+						<input id="titleClick" type="submit" name="title"
+							value="<%=list.get(i).getTitle()%>" />
+					</form>
 					<p id="like"><%=list.get(i).getGood()%></p>
 				</li>
 				<%
@@ -265,8 +274,9 @@ ArrayList<BoardDTO> list;
 				%>
 				<li>
 					<form action="BoardProcess.jsp">
-					<input id="titleClick" type="submit" name="title" value="<%=list.get(i).getTitle()%>" />
-				</form>
+						<input id="titleClick" type="submit" name="title"
+							value="<%=list.get(i).getTitle()%>" />
+					</form>
 					<p id="like"><%=list.get(i).getGood()%></p>
 				</li>
 				<%
@@ -292,8 +302,9 @@ ArrayList<BoardDTO> list;
 				%>
 				<li>
 					<form action="BoardProcess.jsp">
-					<input id="titleClick" type="submit" name="title" value="<%=list.get(i).getTitle()%>" />
-				</form>
+						<input id="titleClick" type="submit" name="title"
+							value="<%=list.get(i).getTitle()%>" />
+					</form>
 					<p id="like"><%=list.get(i).getGood()%></p>
 				</li>
 				<%
@@ -309,7 +320,8 @@ ArrayList<BoardDTO> list;
 			<div class="Tothe">
 				<h3 class="H3">
 					<img class="logo"
-						src="https://d2u3dcdbebyaiu.cloudfront.net/img/web/topic_logo_kr_1587367371.png">반려 동물
+						src="https://d2u3dcdbebyaiu.cloudfront.net/img/web/topic_logo_kr_1587367371.png">반려
+					동물
 				</h3>
 				<a href="animal.jsp" class="A">더보기 &gt;</a>
 			</div>
@@ -321,8 +333,9 @@ ArrayList<BoardDTO> list;
 				%>
 				<li>
 					<form action="BoardProcess.jsp">
-					<input id="titleClick" type="submit" name="title" value="<%=list.get(i).getTitle()%>" />
-				</form>
+						<input id="titleClick" type="submit" name="title"
+							value="<%=list.get(i).getTitle()%>" />
+					</form>
 					<p id="like"><%=list.get(i).getGood()%></p>
 				</li>
 				<%
@@ -348,8 +361,9 @@ ArrayList<BoardDTO> list;
 				%>
 				<li>
 					<form action="BoardProcess.jsp">
-					<input id="titleClick" type="submit" name="title" value="<%=list.get(i).getTitle()%>" />
-				</form>
+						<input id="titleClick" type="submit" name="title"
+							value="<%=list.get(i).getTitle()%>" />
+					</form>
 					<p id="like"><%=list.get(i).getGood()%></p>
 				</li>
 				<%
@@ -377,8 +391,9 @@ ArrayList<BoardDTO> list;
 				%>
 				<li>
 					<form action="BoardProcess.jsp">
-					<input id="titleClick" type="submit" name="title" value="<%=list.get(i).getTitle()%>" />
-				</form>
+						<input id="titleClick" type="submit" name="title"
+							value="<%=list.get(i).getTitle()%>" />
+					</form>
 					<p id="like"><%=list.get(i).getGood()%></p>
 				</li>
 				<%
@@ -404,8 +419,9 @@ ArrayList<BoardDTO> list;
 				%>
 				<li>
 					<form action="BoardProcess.jsp">
-					<input id="titleClick" type="submit" name="title" value="<%=list.get(i).getTitle()%>" />
-				</form>
+						<input id="titleClick" type="submit" name="title"
+							value="<%=list.get(i).getTitle()%>" />
+					</form>
 					<p id="like"><%=list.get(i).getGood()%></p>
 				</li>
 				<%
@@ -443,8 +459,9 @@ ArrayList<BoardDTO> list;
 				%>
 				<li>
 					<form action="BoardProcess.jsp">
-					<input id="titleClick" type="submit" name="title" value="<%=list.get(i).getTitle()%>" />
-				</form>
+						<input id="titleClick" type="submit" name="title"
+							value="<%=list.get(i).getTitle()%>" />
+					</form>
 					<p id="like"><%=list.get(i).getGood()%></p>
 				</li>
 				<%
@@ -453,26 +470,30 @@ ArrayList<BoardDTO> list;
 				%>
 			</ul>
 		</div>
-
 	</div>
-
-
 
 	<div class="ilbe">
 		<h5>베스트</h5>
-		<!-- 게시물 별 조회수 DB 가져와서, 좋아요 가장 높은 순으로 li 띄우면 됨 -->
-		<p style="margin-top : 50px;">좋아요 기능 추가하고 가장 높은 좋아요 순으로 할 예정</p>
 		<ol>
-			<li></li>
-			<li></li>
-			<li></li>
-			<li></li>
-			<li></li>
-			<li></li>
-			<li></li>
-			<li></li>
-			<li></li>
-			<li></li>
+		<%
+		dao = new BoardDAO(application);
+		ArrayList<BoardDTO> bestList = dao.bestPost();
+		int count = bestList.size();
+		if(count > 10) {
+			for(int i = 0;i < 10;i++) {
+		%>
+				<li><%=list.get(i).getTitle() %></li>
+		<% 
+			}
+		} else {
+			for(int i = 0;i < count;i++) {
+		%>
+				<li><%=list.get(i).getTitle() %></li>
+		<% 
+			}
+		}
+		%>
+		
 		</ol>
 	</div>
 

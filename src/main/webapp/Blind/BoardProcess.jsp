@@ -22,6 +22,7 @@ if (dto.getTitle() != null) {
 	session.setAttribute("Title", dto.getTitle());
 	session.setAttribute("ChName", dto.getChname());
 	session.setAttribute("VisitCount", dto.getVisitcount());
+	session.setAttribute("Good", dto.getGood());
    	response.sendRedirect("View.jsp");
 } else {
    request.setAttribute("comErr", "다시 시도해주세요");

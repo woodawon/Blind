@@ -15,7 +15,6 @@ String title = (String) session.getAttribute("Title");
 String num = request.getParameter("num");
 dao.updateVisitCount(title); // 조회수 증가
 BoardDTO dto = dao.selectView(num); // 게시물 가져오기
-dao.close();
 String mail = (String) session.getAttribute("UserMail");
 String school = (String) session.getAttribute("userCH");
 String id = (String) session.getAttribute("UserId");
@@ -26,6 +25,7 @@ Date PostDate = (Date) session.getAttribute("PostDate");
 String Title = (String) session.getAttribute("Title");
 String ChName = (String) session.getAttribute("ChName");
 String VisitCount = (String) session.getAttribute("VisitCount");
+String Good = (String) session.getAttribute("Good");
 %>
 <!DOCTYPE html>
 <html>
@@ -62,12 +62,13 @@ String VisitCount = (String) session.getAttribute("VisitCount");
 						<%
 						dto = dao.selecView(Title);
 						%>
-						<%=dto.getContent()%>
+						<%=Content%>
 					</p>
 					<div data-v-5d915d2e="" class="article_info">
 						<div data-v-5d915d2e="" class="info">
-							<a data-v-5d915d2e="" class="like"><%=dto.getGood()%></a> <a
-								data-v-5d915d2e="" class="cmt"><%=list.size()%></a>
+							<img src="images/like.png" alt="like" class="likeImg" onclick="movePage()">
+							<%=Good%>
+							<a data-v-5d915d2e="" class="cmt"><%=list.size()%></a>
 						</div>
 
 					</div>
@@ -137,11 +138,17 @@ String VisitCount = (String) session.getAttribute("VisitCount");
 				</ul>
 				<%
 				}
+				dao.close();
 				%>
 			</div>
 		</div>
-
 	</div>
+	<script>
+		function movePage() {
+			var url = 'ViewSectionProcess.jsp';
+			window.location.href = url;
+		}
+	</script>
 
 </body>
 </html>
