@@ -62,26 +62,30 @@ ArrayList<BoardDTO> reviewList = dao.getReviewsBySchool(scName);
 	<%
 	String[] arr = { scName, scFond, scATPT, scRDNDA, scRDNDA, scTELNO, scHMPG, scCOEDU, scHS };
 	%>
-	<%-- <ul class="schoolInfo">
+	<ul class="schoolInfo">
 		<h3 class="bigtitle">학교 정보</h3>
-		<h1><%=arr[0] %></h1>
+		<h1><%=arr[0]%></h1>
 		<div id="schoolIntroduce">
-			<h1><%=arr[0] %> 학교 소개</h1>
-			<div id="left">
-				<p>홈페이지</p>
-				<a href="<%=arr[6]%>" />
-				<p>위치</p>
-				<p><%=arr[3] %></p>
-				<p>남녀공학 여부</p>
-				<p><%=arr[7] %></p>
-			</div>
-			<div id="right">
-				<p>공립 or 사립</p>
-				<p><%=arr[1] %></p>
-				<p>고등학교 구분</p>
-				<p><%=arr[8] %></p>
-				<p>전화번호</p>
-				<p><%=arr[5] %></p>
+			<h1><%=arr[0]%>
+				학교 소개
+			</h1>
+			<div id="introInline">
+				<div id="left">
+					<p>홈페이지</p>
+					<a href="<%=arr[6]%>"><%=arr[6]%></a>
+					<p>위치</p>
+					<p><%=arr[3]%></p>
+					<p>남녀공학 여부</p>
+					<p><%=arr[7]%></p>
+				</div>
+				<div id="right">
+					<p>공립 or 사립</p>
+					<p><%=arr[1]%></p>
+					<p>고등학교 구분</p>
+					<p><%=arr[8]%></p>
+					<p>전화번호</p>
+					<p><%=arr[5]%></p>
+				</div>
 			</div>
 		</div>
 		<%
@@ -91,7 +95,7 @@ ArrayList<BoardDTO> reviewList = dao.getReviewsBySchool(scName);
 		<%
 		}
 		%>
-	</ul> --%>
+	</ul>
 
 	<div class="allin">
 		<div class="article-comments">
